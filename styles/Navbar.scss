@@ -1,59 +1,92 @@
+@import "../styles/var.scss";
+
 .navbar {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 6rem;
   border: 1px solid tomato;
   position: relative;
+}
 
-  .navbar__logo {
-    object-fit: cover;
-    height: 80%;
-    position: absolute;
-    left: 1rem;
-    top: 1rem;
+.navbar-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar__logo {
+  object-fit: contain;
+  height: 80%;
+  width: clamp(13rem, 18%, 25%);
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  cursor: pointer;
+}
+
+.navbar__controlPart {
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  .navbar__controlPart__input {
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 5px;
+    color: #fff;
+    height: 40%;
+    font-size: 1rem;
+    margin: 0 1em;
+    padding: 0.5em;
+  }
+  .navbar__controlPart__volume {
+    color: #fff;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0.2rem;
+    background-color: aqua;
+    border-radius: 50%;
     cursor: pointer;
   }
+}
 
-  .navbar__controlPart {
-    margin-left: auto;
+.navbar__nav {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 1.7rem;
+  font-weight: 500;
+
+  .nav__list {
     display: flex;
-    align-items: center;
-    height: 100%;
-
-    .navbar__controlPart__input {
-      border: 1px solid rgb(200, 200, 200);
-      border-radius: 5px;
-      color: #fff;
-      height: 40%;
-      font-size: 1rem;
-      margin: 0 1em;
-      padding: 0.5em;
-    }
-    .navbar__controlPart__volume {
-      color: #fff;
-      width: 1.5rem;
-      height: 1.5rem;
-      padding: 0.2rem;
-      background-color: aqua;
-      border-radius: 50%;
+    .nav__list__item {
+      margin-right: 1rem;
       cursor: pointer;
     }
+    .nav__list__item:first-child {
+      margin-left: 1rem;
+    }
   }
+}
+.navbar__controls {
+  visibility: hidden;
+  display: none;
+}
 
-  .navbar__nav {
+@media screen and (max-width: 60rem) {
+  .navbar__controls {
+    visibility: visible;
+    display: block;
+    font-size: 2rem;
+    margin: 2rem;
+    color: $clr-white;
     display: flex;
     justify-content: center;
-    color: white;
-    font-size: 1.7rem;
-    font-weight: 500;
-
-    .nav__list {
-      display: flex;
-      .nav__list__item {
-        margin: 1rem;
-        cursor: pointer;
-      }
-    }
+    align-items: center;
+  }
+  .desktop-only {
+    display: none;
+    visibility: hidden;
   }
 }
