@@ -1,92 +1,85 @@
 @import "../styles/var.scss";
 
 .navbar {
+  background: $clr-bg;
+  height: $navbar-height;
+  display: flex;
+  font-size: 1.2rem;
+  position: sticky;
+  z-index: 99;
+}
+
+.navbar-container {
+  margin-top: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  height: 6rem;
-  border: 1px solid tomato;
-  position: relative;
+  height: $navbar-height;
 }
 
-.navbar-column {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 50px;
+  padding-left: 50px;
 }
 
 .navbar__logo {
+  height: 100%;
+  width: clamp(5rem, 20rem, 15rem);
   object-fit: contain;
-  height: 80%;
-  width: clamp(13rem, 18%, 25%);
-  position: absolute;
-  left: 1rem;
-  top: 1rem;
+  cursor: pointer;
+
+  // position: absolute;
+  // left: 1rem;
+  // top: 1rem;
   cursor: pointer;
 }
 
-.navbar__controlPart {
-  display: flex;
-  align-items: center;
-  height: 100%;
-
-  .navbar__controlPart__input {
-    border: 1px solid rgb(200, 200, 200);
-    border-radius: 5px;
-    color: #fff;
-    height: 40%;
-    font-size: 1rem;
-    margin: 0 1em;
-    padding: 0.5em;
-  }
-  .navbar__controlPart__volume {
-    color: #fff;
-    width: 1.5rem;
-    height: 1.5rem;
-    padding: 0.2rem;
-    background-color: aqua;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-}
-
-.navbar__nav {
+.nav__list {
   display: flex;
   justify-content: center;
-  color: white;
-  font-size: 1.7rem;
+  align-items: center;
+}
+
+.nav__list__item {
+  color: $clr-white;
+  margin: 0 0.5rem;
+  font-size: 1.5rem;
   font-weight: 500;
-
-  .nav__list {
-    display: flex;
-    .nav__list__item {
-      margin-right: 1rem;
-      cursor: pointer;
-    }
-    .nav__list__item:first-child {
-      margin-left: 1rem;
-    }
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.navbar__controls {
+
+.list__item__input {
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 5px;
+  color: #fff;
+  height: 40%;
+  font-size: 1rem;
+  margin: 0 1em;
+  padding: 0.5em;
+}
+
+.list__item__volume {
+  color: #fff;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.2rem;
+  background-color: aqua;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.navbar__menu-icon {
   visibility: hidden;
-  display: none;
 }
 
-@media screen and (max-width: 60rem) {
-  .navbar__controls {
+@media screen and (max-width: 970px) {
+  .navbar__menu-icon {
     visibility: visible;
-    display: block;
-    font-size: 2rem;
-    margin: 2rem;
-    color: $clr-white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .desktop-only {
-    display: none;
-    visibility: hidden;
   }
 }
