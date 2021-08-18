@@ -1,0 +1,25 @@
+@import "../styles/var.scss";
+
+.dashboard-itemList {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 3fr));
+  grid-template-rows: auto;
+  grid-gap: 2em;
+  position: absolute;
+  top: $navbar-height;
+  margin: 0 2em;
+}
+
+.dashboard-itemList__item {
+  border: 1px solid tomato;
+}
+
+.item__image {
+  object-fit: contain;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15rem;
+}
