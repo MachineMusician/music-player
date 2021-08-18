@@ -22,8 +22,8 @@
   max-width: 1300px;
   margin-right: auto;
   margin-left: auto;
-  padding-right: 50px;
-  padding-left: 50px;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
 }
 
 .navbar__logo {
@@ -86,6 +86,7 @@
   .list__item__input {
     height: 3rem;
     font-size: 1.5rem;
+    width: 100%;
   }
 
   .list__item__volume {

@@ -1,14 +1,24 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { FaVolumeMute } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
 
 const Navbar = () => {
   const [menuClicked, setMenuClicked] = useState(false);
-
   const toggleMenu = () => {
     setMenuClicked(!menuClicked);
   };
+  const API_URL =
+    "http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline";
+
+  const getData = () => {
+    axios.get(API_URL).then((res) => console.log(res));
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <header className="navbar">
