@@ -13,7 +13,11 @@ const Dashboard = ({ itemList }) => {
             />
 
             <div className="item__info">
-              <span className="item__info__name">{item.name}</span>
+              <span className="item__info__name">
+                {item.name.trim().length < 42
+                  ? item.name
+                  : item.name.slice(0, 42)}
+              </span>
               <span className="item__info__product-type">
                 {item.product_type}
               </span>
