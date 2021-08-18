@@ -42,13 +42,21 @@
 
 .nav__list__item {
   color: $clr-white;
-  margin: 0 0.5rem;
+  margin: 0.5rem;
+  padding: 0.5rem 0;
   font-size: 1.5rem;
   font-weight: 500;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border-bottom: none;
+  will-change: transform;
+  transition: color 0.3s ease-out;
+}
+.nav__list__item:nth-child(2):hover,
+.nav__list__item:nth-child(3):hover {
+  color: $clr-yellow;
 }
 
 .list__item__input {
