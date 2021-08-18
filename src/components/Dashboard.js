@@ -10,9 +10,13 @@ const Dashboard = ({ itemList }) => {
               alt="product image"
             />
 
-            <span className="item__name">{item.name}</span>
-            <span className="item__product-type">{item.product_type}</span>
-            <span className="item__createdAt">{item.created_at}</span>
+            <div className="item__info">
+              <span className="item__info__name">{item.name}</span>
+              <span className="item__info__product-type">
+                {item.product_type}
+              </span>
+              <span className="item__info__createdAt">{item.created_at}</span>
+            </div>
           </div>
         );
       })}

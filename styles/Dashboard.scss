@@ -32,10 +32,22 @@
   height: 65%;
 }
 
-.item__price,
-.item__name,
-.item__product-type,
-.item__description {
+.item__info {
   display: flex;
+  flex-direction: column;
+  height: 35%;
+  padding: 1rem;
+  color: $clr-white;
+}
+
+.item__info__name {
   flex: 1;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.item__info__product-type {
+  flex: 0.5;
+}
+.item__info__createdAt {
+  flex: 0.5;
 }
