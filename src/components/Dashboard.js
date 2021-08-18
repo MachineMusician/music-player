@@ -1,4 +1,6 @@
 const Dashboard = ({ itemList }) => {
+  const regex_date = /[0-9]+-[0-9]+-[0-9]+/;
+  //   const regex_time = /[0-9]+:[0-9]+:[0-9]+/;
   return (
     <div className="dashboard-itemList">
       {itemList.map((item) => {
@@ -15,7 +17,10 @@ const Dashboard = ({ itemList }) => {
               <span className="item__info__product-type">
                 {item.product_type}
               </span>
-              <span className="item__info__createdAt">{item.created_at}</span>
+              <span className="item__info__createdAt">
+                {item.created_at.match(regex_date)}
+                {/* {item.created_at.match(regex_time)} */}
+              </span>
             </div>
           </div>
         );
