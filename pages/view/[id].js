@@ -18,7 +18,6 @@ const View = () => {
   const getData = async () => {
     try {
       const item = await axios.get(API_URL);
-      console.log(item.data);
       setData(item.data);
       setStatus(true);
     } catch (error) {
@@ -37,8 +36,6 @@ const View = () => {
         <title>Details</title>
         <meta name="description" content="playing music" />
       </Head>
-      {console.log(data)}
-      {console.log(status)}
       {status ? (
         <div className="detail-screen">
           <div className="view-container">
@@ -57,7 +54,7 @@ const View = () => {
                     {data.product_type}
                   </span>
                   <span className="info-section__item__info__createdAt">
-                    {/* {data.created_at.match(regex_date)} */}
+                    {data.created_at.match(regex_date)}
                   </span>
                   <p className="info-section__item__info__description">
                     {data.description}

@@ -52,8 +52,7 @@ const Navbar = () => {
                 setMenuClicked(false);
               }}
             >
-              {/* need to be changed */}
-              <Link href="/">
+              <Link href="/workspace/1">
                 <a>Go to Play</a>
               </Link>
             </li>
