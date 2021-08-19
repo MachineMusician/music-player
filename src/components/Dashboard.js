@@ -7,9 +7,9 @@ const Dashboard = ({ itemList }) => {
     <div className="dashboard-itemList">
       {itemList.map((item) => {
         return (
-          <Link href={`/view/${item.id}`}>
+          <Link href={`/view/${item.id}`} key={item.id}>
             <a>
-              <div key={item.id} className="dashboard-itemList__item">
+              <div className="dashboard-itemList__item">
                 <img
                   className="item__image"
                   src={item.image_link}
