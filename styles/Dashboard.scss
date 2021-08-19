@@ -10,6 +10,7 @@
   position: absolute;
   top: $navbar-height;
   padding: 0 1.5em;
+  // scroll-snap-type: y mandatory;
 }
 
 .dashboard-itemList__item {
