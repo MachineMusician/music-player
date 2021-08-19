@@ -36,8 +36,27 @@ const Navbar = () => {
               />
               <FaVolumeMute className="list__item__volume" />
             </li>
-            <li className="nav__list__item">DashBoard</li>
-            <li className="nav__list__item">Go to Play</li>
+            <li
+              className="nav__list__item"
+              onClick={() => {
+                setMenuClicked(false);
+              }}
+            >
+              <Link href="/">
+                <a>DashBoard</a>
+              </Link>
+            </li>
+            <li
+              className="nav__list__item"
+              onClick={() => {
+                setMenuClicked(false);
+              }}
+            >
+              {/* need to be changed */}
+              <Link href="/">
+                <a>Go to Play</a>
+              </Link>
+            </li>
           </ul>
         </nav>
         <div className="navbar__menu-icon" onClick={toggleMenu}>
