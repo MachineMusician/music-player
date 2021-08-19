@@ -27,34 +27,33 @@ const View = () => {
         <title>Details</title>
         <meta name="description" content="playing music" />
       </Head>
-      <div className="view-container">
-        <div className="view__column info-section">
-          <div key={data.id} className="info-section__item">
-            <img
-              className="info-section__item__image"
-              src={data.image_link}
-              alt="product image"
-            />
-            <div className="info-section__item__info">
-              <span className="info-section__item__info__name">
-                {/* {data.name.trim().length < 42
-                  ? data.name
-                  : `${data.name.slice(0, 40)}...`} */}
-                {data.name}
-              </span>
-              <span className="info-section__item__info__product-type">
-                {data.product_type}
-              </span>
-              <span className="info-section__item__info__createdAt">
-                {/* {data.created_at.match(regex_date)} */}
-              </span>
-              <p className="info-section__item__info__description">
-                {data.description}
-              </p>
+      <div className="detail-screen">
+        <div className="view-container">
+          <div className="view__column info-section">
+            <div key={data.id} className="info-section__item">
+              <img
+                className="info-section__item__image"
+                src={data.image_link}
+                alt="product image"
+              />
+              <div className="info-section__item__info">
+                <span className="info-section__item__info__name">
+                  {data.name}
+                </span>
+                <span className="info-section__item__info__product-type">
+                  {data.product_type}
+                </span>
+                <span className="info-section__item__info__createdAt">
+                  {data.created_at.match(regex_date)}
+                </span>
+                <p className="info-section__item__info__description">
+                  {data.description}
+                </p>
+              </div>
             </div>
           </div>
+          <div className="view__column play-section">hello</div>
         </div>
-        <div className="view__column play-section">hello</div>
       </div>
     </>
   );
