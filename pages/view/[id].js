@@ -5,12 +5,14 @@ import { useEffect, useState } from "react";
 const View = () => {
   const router = useRouter();
   const { id } = router.query;
-
   const [data, setData] = useState([]);
   const API_URL = `http://makeup-api.herokuapp.com/api/v1/products/${id}.json`;
 
   const getData = () => {
-    axios.get(API_URL).then((res) => setData(res.data));
+    axios
+      .get(API_URL) //
+      .then((res) => setData(res.data))
+      .catch(console.log);
   };
 
   useEffect(() => {

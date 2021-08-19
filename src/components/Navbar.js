@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState } from "react";
 import { FaVolumeMute } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -12,14 +13,18 @@ const Navbar = () => {
   return (
     <header className="navbar">
       <div className="navbar-container container">
-        <img
-          className="navbar__logo"
-          src="logo.png"
-          alt="logo"
-          onClick={() => {
-            setMenuClicked(false);
-          }}
-        />
+        <Link href="/">
+          <a>
+            <img
+              className="navbar__logo"
+              src="logo.png"
+              alt="logo"
+              onClick={() => {
+                setMenuClicked(false);
+              }}
+            />
+          </a>
+        </Link>
 
         <nav className={menuClicked ? "navbar__nav active" : "navbar__nav"}>
           <ul className="nav__list">

@@ -2,7 +2,6 @@ import axios from "axios";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import Dashboard from "../src/components/Dashboard";
-import Navbar from "../src/components/Navbar";
 
 export default function Home() {
   const [itemList, setItemList] = useState([]);
@@ -29,7 +28,6 @@ export default function Home() {
           content="It's a website for playing music, using AI"
         />
       </Head>
-      <Navbar />
       <Dashboard itemList={itemList} />
     </>
   );
