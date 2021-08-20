@@ -1,24 +1,6 @@
-import axios from "axios";
 import Head from "next/head";
-import { useEffect, useState } from "react";
-import Dashboard from "../src/components/Dashboard";
 
 export default function Home() {
-  const [itemList, setItemList] = useState([]);
-
-  const API_URL =
-    "http://makeup-api.herokuapp.com/api/v1/products.json?brand=dior";
-
-  const getData = () => {
-    axios //
-      .get(API_URL)
-      .then((res) => setItemList(res.data))
-      .catch(console.log);
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
   return (
     <>
       <Head>
@@ -28,7 +10,7 @@ export default function Home() {
           content="It's a website for playing music, using AI"
         />
       </Head>
-      <Dashboard itemList={itemList} />
+      <div>hello</div>
     </>
   );
 }
