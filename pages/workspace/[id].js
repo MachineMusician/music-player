@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { GoPlus } from "react-icons/go";
 
 const Workspace = () => {
   const router = useRouter();
@@ -13,7 +14,11 @@ const Workspace = () => {
       <div className="workspace">
         <form>
           <label htmlFor="upload-image">
-            <span>Upload Image!</span>
+            <div className="workspace__uploadImg">
+              <GoPlus className="workspace__uploadImg__icon" />
+              <span>Upload images!!</span>
+              <span>.jpg/.jpeg/.png</span>
+            </div>
           </label>
 
           <input
