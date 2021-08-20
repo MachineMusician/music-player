@@ -1,5 +1,9 @@
+import { useRouter } from "next/router";
+
 const Workspace = () => {
-  return <div className="workspace">Workspace here</div>;
+  const router = useRouter();
+  const { id } = router.query;
+  return <div className="workspace">{console.log(id)}Workspace here</div>;
 };
 
 export default Workspace;

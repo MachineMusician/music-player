@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FaVolumeMute } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
+import { v4 as uuidv4 } from "uuid";
 
 const Navbar = () => {
   const [menuClicked, setMenuClicked] = useState(false);
@@ -52,7 +53,8 @@ const Navbar = () => {
                 setMenuClicked(false);
               }}
             >
-              <Link href="/workspace/1">
+              {/* need to make all id random using uuid? */}
+              <Link href={`/workspace/${uuidv4()}`}>
                 <a>Go to Play</a>
               </Link>
             </li>
