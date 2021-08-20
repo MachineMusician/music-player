@@ -4,10 +4,44 @@
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: absolute;
   inset: 0;
+}
+
+.workspace__work {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  height: 50%;
+  width: 70%;
+  max-width: 1300px;
+}
+
+.workspace__work__img {
+  flex: 1;
+  object-fit: fill;
+  display: flex;
+  width: clamp(10rem, 80%, 16rem);
+  height: 65%;
+  border-radius: 6px;
+  outline: 3px solid $clr-yellow;
+}
+
+.workspace__work__controller {
+  flex: 2;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.workspace__work__controller__icon {
+  font-size: 2.5rem;
+  margin: 2rem 0;
+  color: $clr-white;
 }
 
 .workspace__uploadImg {
