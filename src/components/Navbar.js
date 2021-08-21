@@ -43,7 +43,7 @@ const Navbar = () => {
                 setMenuClicked(false);
               }}
             >
-              <Link href="/">
+              <Link href="/dashboard">
                 <a>DashBoard</a>
               </Link>
             </li>

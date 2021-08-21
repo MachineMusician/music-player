@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -28,6 +29,10 @@ const Dashboard = () => {
 
   return (
     <>
+      <Head>
+        <title>Music Player | Dashboard</title>
+        <meta name="description" content="Look around other works" />
+      </Head>
       {statusDashboard ? (
         <div className="dashboard-itemList">
           {dataList.map((item) => {
