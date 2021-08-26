@@ -22,8 +22,8 @@
 .welcome__container__contents {
   width: 100%;
   height: 60%;
-  // background-color: tomato;
   display: flex;
+  color: $clr-white;
 
   .welcome__container__contents__content {
     position: relative;
@@ -39,15 +39,72 @@
 
   .a {
     border: 1px solid tomato;
+    font-size: 2rem;
+    h2 {
+      position: absolute;
+      top: 5rem;
+      left: 50px;
+    }
+    span {
+      position: absolute;
+      top: 13rem;
+      left: 100px;
+      display: flex;
+      width: 40rem;
+    }
+    img {
+      top: 20rem;
+      left: 100px;
+      position: absolute;
+    }
   }
   .b {
+    font-size: 2rem;
     border: 1px solid blue;
+    span {
+      position: absolute;
+      top: 5rem;
+      left: 100px;
+      display: flex;
+      width: 50rem;
+    }
+    img {
+      top: 10rem;
+      left: 100px;
+      position: absolute;
+    }
   }
   .c {
+    font-size: 2rem;
     border: 1px solid aqua;
+    span {
+      position: absolute;
+      top: 5rem;
+      left: 100px;
+      display: flex;
+      width: 50rem;
+    }
+    img {
+      top: 10rem;
+      left: 100px;
+      position: absolute;
+    }
   }
   .d {
+    font-size: 2rem;
     border: 1px solid wheat;
+    span {
+      position: absolute;
+      top: 5rem;
+      left: 100px;
+      display: flex;
+      width: 50rem;
+    }
+    img {
+      top: 10rem;
+      left: 100px;
+      position: absolute;
+    }
   }
 }
 
