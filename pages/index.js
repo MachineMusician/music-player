@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useState } from "react";
 
 export default function Home() {
-  const [position, setPosition] = useState(1);
+  const [position, setPosition] = useState(0);
   const SCROLL_SPEED = 10;
 
   const onWheel = (event) => {
@@ -20,30 +20,18 @@ export default function Home() {
           content="It's a website for playing music, using AI"
         />
       </Head>
-      <div className="welcome">
+      {/* <div className="welcome">
         <div className="welcome__container" onWheel={onWheel}>
-          <section>
-            <div className="welcome__container__content">
-              <h2 className={position > 100 ? "title active" : "title"}>
-                Welcome!!
-              </h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
-                facilis rem architecto nulla atque iusto error veniam ipsum.
-                Adipisci iure ipsum, sit et placeat magnam fugit aperiam hic
-                magni deleniti.
-              </p>
-            </div>
-          </section>
           <section>
             <div
               className="welcome__container__content ani1"
               style={{
-                transform: `translateX(-${position / 10}px)`,
-                opacity: `${(position - 400) / 400}`,
+                transform: `translateX(-${position}px)`,
               }}
             >
-              <h2>Take a picture of your note!!</h2>
+              <h2 className={position > -1 ? "title active" : "title"}>
+                Take a picture of your note!!
+              </h2>
               <p>You can play your note before you play it.</p>
             </div>
             <div className="welcome__container__content ani2">
@@ -62,6 +50,11 @@ export default function Home() {
               </p>
             </div>
           </section>
+        </div>
+      </div> */}
+      <div className="welcome">
+        <div className="welcome__container" onWheel={onWheel}>
+          <div className="spacer wave1"></div>
         </div>
       </div>
     </>
