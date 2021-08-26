@@ -54,7 +54,39 @@ export default function Home() {
       </div> */}
       <div className="welcome">
         <div className="welcome__container" onWheel={onWheel}>
-          <div className="spacer wave1"></div>
+          {/* <section style={{ top: "15%", left: "10%" }}>
+            <div
+              className="welcome__container__content ani1"
+              // style={{
+              //   transform: `translateX(-${position}px)`,
+              // }}
+            >
+              <h2 className={position > 80 ? "effect active" : "effect"}>
+                Take a picture of your note!!
+              </h2>
+              <p>You can play your note before you play it.</p>
+            </div>
+          </section> */}
+
+          <div className="block">
+            <div className="welcome__container__contents">
+              <div className="welcome__container__contents__content a"></div>
+              <div className="welcome__container__contents__content b"></div>
+              <div className="welcome__container__contents__content c"></div>
+              <div className="welcome__container__contents__content d"></div>
+            </div>
+            <div className="spacer wave1"></div>
+          </div>
+
+          <div className="block">
+            <div className="welcome__container__contents">
+              <div className="welcome__container__contents__content a"></div>
+              <div className="welcome__container__contents__content b"></div>
+              <div className="welcome__container__contents__content c"></div>
+              <div className="welcome__container__contents__content d"></div>
+            </div>
+            <div className="spacer wave2"></div>
+          </div>
         </div>
       </div>
     </>

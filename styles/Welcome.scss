@@ -1,74 +1,74 @@
 @import "../styles/var.scss";
 
 .welcome {
-  position: absolute;
-  top: $navbar-height;
-  left: 0;
-  // width: 100%;
-  height: 100%;
-}
-
-.welcome__container {
-  position: fixed;
+  position: relative;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
+}
+
+.welcome__container {
+  position: fixed;
+  top: $navbar-height;
+  left: 0;
+  width: 200vw;
+  height: 100%;
   display: flex;
-  // scroll-snap-type: x;
   overflow-x: scroll;
+
+  // scroll-snap-type: x;
+}
+.block {
+  display: flex;
+  width: 100vw;
+}
+
+.welcome__container__contents {
+  width: 100%;
+  height: 60%;
+  // background-color: tomato;
   display: flex;
 
-  section {
-    min-width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fffee1;
-    flex: none;
+  .welcome__container__contents__content {
+    flex: 1;
+  }
 
-    &:nth-child(2) {
-      background-color: #e2fcff;
-    }
-
-    .welcome__container__content {
-      max-width: 800px;
-      padding: 40px;
-      text-align: center;
-
-      img {
-        width: 30rem;
-        height: 20rem;
-        object-fit: cover;
-      }
-
-      .title {
-        opacity: 0;
-        transition: opacity 2s ease;
-      }
-
-      .title.active {
-        opacity: 1;
-      }
-    }
+  .a {
+    background-color: tomato;
+    height: 100%;
+  }
+  .b {
+    background-color: blue;
+    height: 100%;
+  }
+  .c {
+    background-color: aqua;
+    height: 100%;
+  }
+  .d {
+    background-color: wheat;
+    height: 100%;
   }
 }
 
 .spacer {
-  // aspect-ratio: 960/300;
-  width: 200vw;
-  // height: 47rem;
-  padding-top: 60%;
+  width: 100%;
+  height: 100%;
+  // padding-top: 60%;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: bottom;
   background-size: cover;
   overflow: hidden;
   position: absolute;
-  bottom: 0;
-  left: 0;
+  z-index: -2;
 }
 
 .wave1 {
   background-image: url("../public/wave2.svg");
+}
+
+.wave2 {
+  background-image: url("../public/wave2.svg");
+  transform: rotateY(120deg);
 }
