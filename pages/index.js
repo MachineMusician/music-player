@@ -20,38 +20,6 @@ export default function Home() {
           content="It's a website for playing music, using AI"
         />
       </Head>
-      {/* <div className="welcome">
-        <div className="welcome__container" onWheel={onWheel}>
-          <section>
-            <div
-              className="welcome__container__content ani1"
-              style={{
-                transform: `translateX(-${position}px)`,
-              }}
-            >
-              <h2 className={position > -1 ? "title active" : "title"}>
-                Take a picture of your note!!
-              </h2>
-              <p>You can play your note before you play it.</p>
-            </div>
-            <div className="welcome__container__content ani2">
-              <img src="./note2.jpg" alt="hi" />
-            </div>
-          </section>
-
-          <section>
-            <div className="welcome__container__content">
-              <h2>section 2</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
-                nostrum sed minima ipsum? Excepturi accusamus ipsa illo,
-                cupiditate libero quod voluptates similique laborum dolor
-                assumenda asperiores quisquam, hic quasi fuga.
-              </p>
-            </div>
-          </section>
-        </div>
-      </div> */}
       <div className="welcome">
         <div className="welcome__container" onWheel={onWheel}>
           {/* <section style={{ top: "15%", left: "10%" }}>
@@ -68,25 +36,22 @@ export default function Home() {
             </div>
           </section> */}
 
-          <div className="block">
-            <div className="welcome__container__contents">
-              <div className="welcome__container__contents__content a"></div>
-              <div className="welcome__container__contents__content b"></div>
-              <div className="welcome__container__contents__content c"></div>
-              <div className="welcome__container__contents__content d"></div>
+          <div className="welcome__container__contents">
+            <div className="welcome__container__contents__content a">
+              Welcome!!
             </div>
-            <div className="spacer wave1"></div>
-          </div>
-
-          <div className="block">
-            <div className="welcome__container__contents">
-              <div className="welcome__container__contents__content a"></div>
-              <div className="welcome__container__contents__content b"></div>
-              <div className="welcome__container__contents__content c"></div>
-              <div className="welcome__container__contents__content d"></div>
+            <div className="welcome__container__contents__content b">
+              <span>Test your note first!!</span>
+              <img src="./note2.jpg" alt="hi" />
             </div>
-            <div className="spacer wave2"></div>
+            <div className="welcome__container__contents__content c">
+              <img src="./phone_camera2.jpg" alt="hi" />
+            </div>
+            <div className="welcome__container__contents__content d">
+              <img src="./headphone_and_note.jpg" alt="hi" />
+            </div>
           </div>
+          <div className="spacer wave1"></div>
         </div>
       </div>
     </>
