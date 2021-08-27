@@ -51,7 +51,7 @@ export default function Home() {
               <img src="./instrument.png" alt="hi" />
             </div>
             <div className="welcome__container__contents__content d">
-              <span>Step 2 : Choose an instrument you want to listen to</span>
+              <span>Step 3: Play it!!</span>
               <img src="./listening.jpg" alt="hi" />
             </div>
           </div>
