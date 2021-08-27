@@ -54,8 +54,8 @@ export default function Home() {
               <span>Step 3: Play it!!</span>
               <img src="./listening.jpg" alt="hi" />
             </div>
+            <div className="spacer wave1"></div>
           </div>
-          <div className="spacer wave1"></div>
         </div>
       </div>
     </>

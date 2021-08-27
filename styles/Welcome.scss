@@ -118,16 +118,36 @@
 }
 
 .spacer {
-  width: 300vw;
+  width: 200%;
+  height: 100%;
   background-repeat: no-repeat;
   background-position: bottom;
-  background-size: cover;
+  background-size: 100%;
   overflow: hidden;
   position: absolute;
-  inset: 0;
   z-index: -2;
+  bottom: 70px;
+  transition: all 1s ease-out;
 }
 
 .wave1 {
-  background-image: url("../public/wave2.svg");
+  background-image: url("../public/wave1.svg");
+}
+
+@media screen and (max-width: 970px) {
+  .spacer {
+    width: 200%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100% 100%;
+    overflow: hidden;
+    position: absolute;
+    z-index: -2;
+    bottom: 70px;
+  }
+  .wave1 {
+    background-image: url("../public/wave1.svg");
+    transform: rotateZ(180deg);
+  }
 }
