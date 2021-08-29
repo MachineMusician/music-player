@@ -38,8 +38,10 @@ export default function Home() {
 
           <div className="welcome__container__contents">
             <div className="welcome__container__contents__content a">
-              <h2>Welcome to music player!!</h2>
-              <span>Test your notes everywhere!!</span>
+              <h2 className="welcome__container__contents__content__title">
+                Welcome to music player!!
+              </h2>
+              <span>Test your notes right now</span>
               <img src="./headphone_and_note.jpg" alt="hi" />
             </div>
             <div className="welcome__container__contents__content b">
@@ -53,6 +55,10 @@ export default function Home() {
             <div className="welcome__container__contents__content d">
               <span>Step 3: Play it!!</span>
               <img src="./listening.jpg" alt="hi" />
+            </div>
+            <div className="welcome__container__contents__content e">
+              <span>Step 4: Upload to the dashboard and share your works!</span>
+              <img src="./upload.png" alt="hi" />
             </div>
             <div className="spacer wave1"></div>
           </div>

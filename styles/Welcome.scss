@@ -29,31 +29,6 @@
     position: relative;
     // width: 200rem;
     width: 100%;
-
-    img {
-      width: 50%;
-      min-width: 18rem;
-      object-fit: cover;
-    }
-  }
-
-  .a {
-    border: 1px solid tomato;
-    font-size: 2rem;
-    h2 {
-      position: absolute;
-      top: 5rem;
-      left: 50px;
-      color: $clr-yellow;
-      text-shadow: //
-        0.025em 0.025em 0 yellow,
-        //
-        0.05em 0.05em 0 blue,
-        //
-        0.075em 0.075em 0 red,
-        //
-        0.1em 0.1em 0 black;
-    }
     span {
       position: absolute;
       top: 13rem;
@@ -62,58 +37,34 @@
       width: 40rem;
     }
     img {
+      width: 30rem;
+      height: 18rem;
+      min-width: 18rem;
+      object-fit: cover;
       top: 20rem;
       left: 100px;
       position: absolute;
     }
   }
-  .b {
-    font-size: 2rem;
-    border: 1px solid blue;
-    span {
-      position: absolute;
-      top: 5rem;
-      left: 100px;
-      display: flex;
-      width: 50rem;
-    }
-    img {
-      top: 10rem;
-      left: 100px;
-      position: absolute;
-    }
+
+  .welcome__container__contents__content__title {
+    position: absolute;
+    top: 5rem;
+    left: 50px;
+    color: $clr-yellow;
+    text-shadow: //
+      0.025em 0.025em 0 yellow,
+      //
+      0.05em 0.05em 0 blue,
+      //
+      0.075em 0.075em 0 red,
+      //
+      0.1em 0.1em 0 black;
   }
-  .c {
+
+  .a, .b, .c, .d, .e //
+  {
     font-size: 2rem;
-    border: 1px solid aqua;
-    span {
-      position: absolute;
-      top: 5rem;
-      left: 100px;
-      display: flex;
-      width: 50rem;
-    }
-    img {
-      top: 10rem;
-      left: 100px;
-      position: absolute;
-    }
-  }
-  .d {
-    font-size: 2rem;
-    border: 1px solid wheat;
-    span {
-      position: absolute;
-      top: 5rem;
-      left: 100px;
-      display: flex;
-      width: 50rem;
-    }
-    img {
-      top: 10rem;
-      left: 100px;
-      position: absolute;
-    }
   }
 }
 
@@ -127,7 +78,7 @@
   position: absolute;
   z-index: -2;
   bottom: 70px;
-  transition: all 1s ease-out;
+  transition: all 1.5s ease-out;
 }
 
 .wave1 {
@@ -136,18 +87,9 @@
 
 @media screen and (max-width: 970px) {
   .spacer {
-    width: 200%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-position: bottom;
     background-size: 100% 100%;
-    overflow: hidden;
-    position: absolute;
-    z-index: -2;
-    bottom: 70px;
   }
   .wave1 {
-    background-image: url("../public/wave1.svg");
     transform: rotateZ(180deg);
   }
 }
