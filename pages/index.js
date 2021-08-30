@@ -108,8 +108,8 @@ export default function Home() {
               <p>AI model developer</p>
             </div>
           </div>
+          <div className="spacer wave1"></div>
         </div>
-        <div className="spacer wave1"></div>
       </div>
     </>
   );

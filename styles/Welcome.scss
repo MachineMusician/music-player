@@ -105,7 +105,7 @@
   .spacer {
     width: 100%;
     background-size: 100% 100%;
-    bottom: 70px;
+    bottom: 60px;
   }
   .wave1 {
     transform: rotateZ(180deg);
@@ -117,6 +117,10 @@
     align-content: center;
     top: $navbar-height + 3rem;
     margin-right: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+    z-index: 0;
     // max-width: 960px;
   }
 
@@ -125,6 +129,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 90%;
+    margin-top: 15rem;
   }
 
   .welcome__container__contents__title {
