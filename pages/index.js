@@ -37,6 +37,9 @@ export default function Home() {
           </section> */}
 
           <div className="welcome__container__contents">
+            <h2 className="welcome__container__contents__title">
+              Welcome to music player!!
+            </h2>
             <div
               className={
                 position > 30
@@ -47,9 +50,6 @@ export default function Home() {
               //   transform: `translateX(-${position}px)`,
               // }}
             >
-              <h2 className="welcome__container__contents__content__title">
-                Welcome to music player!!
-              </h2>
               <span>Test your notes right now</span>
               <img src="./headphone_and_note.jpg" alt="hi" />
             </div>
@@ -96,9 +96,20 @@ export default function Home() {
               <span>Step 4: Upload to the dashboard and share your works!</span>
               <img src="./upload.png" alt="hi" />
             </div>
-            <div className="spacer wave1"></div>
+            <div
+              className={
+                position > 3000
+                  ? "welcome__container__contents__content active f"
+                  : "welcome__container__contents__content f"
+              }
+            >
+              <span>Contact to us</span>
+              <p>Web developer</p>
+              <p>AI model developer</p>
+            </div>
           </div>
         </div>
+        <div className="spacer wave1"></div>
       </div>
     </>
   );
