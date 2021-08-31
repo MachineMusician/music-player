@@ -1,12 +1,9 @@
 import { AiOutlineGithub } from "react-icons/ai";
 import { RiReactjsLine } from "react-icons/ri";
-import { GiSoapExperiment, GiMusicalNotes } from "react-icons/gi";
-import { BsMusicNoteBeamed, BsMusicNote } from "react-icons/bs";
-import { FaItunesNote } from "react-icons/fa";
-import { HiOutlineMusicNote } from "react-icons/hi";
-import { IoMdMusicalNotes } from "react-icons/io";
+import { GiSoapExperiment } from "react-icons/gi";
 import Head from "next/head";
 import { useState } from "react";
+import NoteIcons from "../src/components/NoteIcons";
 
 const Home = () => {
   const [position, setPosition] = useState(0);
@@ -163,28 +160,7 @@ const Home = () => {
             </div>
           </div>
           <div className="spacer wave1">
-            <div className="spacer__note-set">
-              <GiMusicalNotes className="spacer__note-set__note" />
-              <BsMusicNoteBeamed className="spacer__note-set__note" />
-              <BsMusicNote className="spacer__note-set__note" />
-              <FaItunesNote className="spacer__note-set__note" />
-              <GiMusicalNotes className="spacer__note-set__note" />
-              <IoMdMusicalNotes className="spacer__note-set__note" />
-              <HiOutlineMusicNote className="spacer__note-set__note" />
-              <BsMusicNoteBeamed className="spacer__note-set__note" />
-              <BsMusicNote className="spacer__note-set__note" />
-              <HiOutlineMusicNote className="spacer__note-set__note" />
-              <IoMdMusicalNotes className="spacer__note-set__note" />
-              <FaItunesNote className="spacer__note-set__note" />
-              <BsMusicNote className="spacer__note-set__note" />
-              <HiOutlineMusicNote className="spacer__note-set__note" />
-              <IoMdMusicalNotes className="spacer__note-set__note" />
-              <FaItunesNote className="spacer__note-set__note" />
-              <GiMusicalNotes className="spacer__note-set__note" />
-              <IoMdMusicalNotes className="spacer__note-set__note" />
-              <HiOutlineMusicNote className="spacer__note-set__note" />
-              <BsMusicNoteBeamed className="spacer__note-set__note" />
-            </div>
+            <NoteIcons />
           </div>
         </div>
       </div>
