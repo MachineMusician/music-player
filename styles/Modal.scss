@@ -6,18 +6,20 @@
 @import "./Modal_rightForm.scss";
 
 .modal-trigger {
-  position: absolute;
-  top: $navbar-height;
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
-  width: 6rem;
-  height: 6rem;
-  background-color: tomato;
+  border-radius: 5px;
+  width: 4rem;
+  height: 3rem;
+  background-color: $clr-yellow;
   color: white;
+  font-size: 2.5rem;
   cursor: pointer;
-  z-index: 999;
+  z-index: 5;
 }
 
 .modal-toggle {
@@ -41,14 +43,14 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  height: clamp(40rem, 250vh, 100vh);
+  // height: clamp(40rem, 250vh, 100vh);
+  height: 100%;
   position: absolute;
-  top: $navbar-height;
+  top: 0;
   left: 0;
   background-color: rgba(255, 255, 255, 0.1);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-
   will-change: transition;
   transition: 1s;
 }

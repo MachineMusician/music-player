@@ -42,64 +42,68 @@ const Workspace = () => {
         <title>Go To Play</title>
         <meta name="description" content="playing music" />
       </Head>
-      <div className="workspace">
-        {fileString && ( //
-          <div className="workspace__work">
-            <img
-              className="workspace__work__img"
-              src={fileString}
-              width="100px"
-              height="100px"
-            />
-            <div className="workspace__work__controller">
-              {playMusic ? (
-                <AiFillPauseCircle
-                  className="workspace__work__controller__icon"
-                  onClick={handlePlay}
+      <div className="workspace-container">
+        <div className="workspace">
+          {fileString && ( //
+            <>
+              <div className="workspace__work">
+                <img
+                  className="workspace__work__img"
+                  src={fileString}
+                  width="100px"
+                  height="100px"
                 />
-              ) : (
-                <AiFillPlayCircle
-                  className="workspace__work__controller__icon"
-                  onClick={handlePlay}
-                />
-              )}
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value="0"
-                id="workspace__work__controller__slidebar"
-                onChange={handleDuration}
-              />
-            </div>
-          </div>
-        )}
-
+                <div className="workspace__work__controller">
+                  {playMusic ? (
+                    <AiFillPauseCircle
+                      className="workspace__work__controller__icon"
+                      onClick={handlePlay}
+                    />
+                  ) : (
+                    <AiFillPlayCircle
+                      className="workspace__work__controller__icon"
+                      onClick={handlePlay}
+                    />
+                  )}
+                  <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="0"
+                    id="workspace__work__controller__slidebar"
+                    onChange={handleDuration}
+                  />
+                </div>
+              </div>
+            </>
+          )}
+          {/* 
         {!fileString && (
           <div className="workspace__description">
             <h4>Take a picture of your note!!</h4>
             <p>You can upload image file and play it</p>
           </div>
-        )}
+        )} */}
 
-        <form id="workspace__form">
-          <label htmlFor="upload-image">
-            <div className="workspace__uploadImg">
-              <GoPlus className="workspace__uploadImg__icon" />
-              <span>Upload image</span>
-              <span>.jpg/.jpeg/.png</span>
-            </div>
-          </label>
-          <input
-            id="upload-image"
-            className=""
-            type="file"
-            accept="image/*"
-            onChange={onFileChange}
-            style={{ visibility: "hidden" }}
-          />
-        </form>
-        <Modal />
+          <form id="workspace__form">
+            <label htmlFor="upload-image">
+              <div className="workspace__uploadImg">
+                <GoPlus className="workspace__uploadImg__icon" />
+                <span>Upload image</span>
+                <span>.jpg/.jpeg/.png</span>
+              </div>
+            </label>
+            <input
+              id="upload-image"
+              className=""
+              type="file"
+              accept="image/*"
+              onChange={onFileChange}
+              style={{ visibility: "hidden" }}
+            />
+          </form>
+          <Modal />
+        </div>
       </div>
     </>
   );

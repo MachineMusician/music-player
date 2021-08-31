@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { IoMdWarning } from "react-icons/io";
 import { AiOutlineCheckCircle } from "react-icons/ai";
+import { BiUpload } from "react-icons/bi";
+
 const Modal = () => {
   const [signStatus, setSignStatus] = useState(true); // true: left
   const [title, setTitle] = useState("");
@@ -61,7 +63,7 @@ const Modal = () => {
         className="modal-trigger"
         onClick={() => setModalTrigger((prev) => !prev)}
       >
-        Click here!
+        <BiUpload />
       </div>
 
       <div className={modalTrigger ? "modal-toggle active" : "modal-toggle"}>
