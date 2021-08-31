@@ -31,8 +31,7 @@ const Modal = () => {
 
   const onKeyPress = (event) => {
     const { code } = event;
-    if (code === "Enter" || code === "Digit2" || code === "Digit3")
-      event.preventDefault();
+    if (code === "Enter") event.preventDefault();
   };
 
   const handleSubmit = () => {

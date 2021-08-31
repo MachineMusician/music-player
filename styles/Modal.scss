@@ -1,16 +1,13 @@
+@import "./var.scss";
 @import "./Modal_leftBox.scss";
 @import "./Modal_rightBox.scss";
 
 @import "./Modal_leftForm.scss";
 @import "./Modal_rightForm.scss";
 
-:root {
-  --nav-height: 80px;
-}
-
 .modal-trigger {
   position: absolute;
-  top: var(--nav-height);
+  top: $navbar-height;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,16 +42,21 @@
   justify-content: center;
   width: 100%;
   height: clamp(40rem, 250vh, 100vh);
-  background-color: #03a9f4;
   position: absolute;
-  top: var(--nav-height);
+  top: $navbar-height;
   left: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
   will-change: transition;
   transition: 1s;
 }
 
 .modal-screen.active {
-  background-color: #f43648;
+  background-color: rgba(253, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .modal-container {
