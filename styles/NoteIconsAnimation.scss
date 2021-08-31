@@ -164,3 +164,10 @@
     transform: translateX(-20px) rotate(225deg);
   }
 }
+
+@media screen and (max-width: 970px) {
+  .spacer__note-set__note {
+    display: none;
+    visibility: hidden;
+  }
+}
