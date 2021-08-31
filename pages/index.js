@@ -1,10 +1,14 @@
-import Head from "next/head";
-import { useState } from "react";
 import { AiOutlineGithub } from "react-icons/ai";
 import { RiReactjsLine } from "react-icons/ri";
-import { GiSoapExperiment } from "react-icons/gi";
+import { GiSoapExperiment, GiMusicalNotes } from "react-icons/gi";
+import { BsMusicNoteBeamed, BsMusicNote } from "react-icons/bs";
+import { FaItunesNote } from "react-icons/fa";
+import { HiOutlineMusicNote } from "react-icons/hi";
+import { IoMdMusicalNotes } from "react-icons/io";
+import Head from "next/head";
+import { useState } from "react";
 
-export default function Home() {
+const Home = () => {
   const [position, setPosition] = useState(0);
   const SCROLL_SPEED = 10;
 
@@ -45,7 +49,7 @@ export default function Home() {
             </h2>
             <div
               className={
-                position > 30
+                position > 90
                   ? "welcome__container__contents__content active a"
                   : "welcome__container__contents__content a"
               }
@@ -86,7 +90,7 @@ export default function Home() {
 
             <div
               className={
-                position > 1100
+                position > 1300
                   ? "welcome__container__contents__content active d"
                   : "welcome__container__contents__content d"
               }
@@ -99,7 +103,7 @@ export default function Home() {
 
             <div
               className={
-                position > 1600
+                position > 2000
                   ? "welcome__container__contents__content active e"
                   : "welcome__container__contents__content e"
               }
@@ -113,7 +117,7 @@ export default function Home() {
             </div>
             <div
               className={
-                position > 2000
+                position > 2700
                   ? "welcome__container__contents__content active f"
                   : "welcome__container__contents__content f"
               }
@@ -158,9 +162,33 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="spacer wave1"></div>
+          <div className="spacer wave1">
+            <div className="spacer__note-set">
+              <GiMusicalNotes className="spacer__note-set__note" />
+              <BsMusicNoteBeamed className="spacer__note-set__note" />
+              <BsMusicNote className="spacer__note-set__note" />
+              <FaItunesNote className="spacer__note-set__note" />
+              <GiMusicalNotes className="spacer__note-set__note" />
+              <IoMdMusicalNotes className="spacer__note-set__note" />
+              <HiOutlineMusicNote className="spacer__note-set__note" />
+              <BsMusicNoteBeamed className="spacer__note-set__note" />
+              <BsMusicNote className="spacer__note-set__note" />
+              <HiOutlineMusicNote className="spacer__note-set__note" />
+              <IoMdMusicalNotes className="spacer__note-set__note" />
+              <FaItunesNote className="spacer__note-set__note" />
+              <BsMusicNote className="spacer__note-set__note" />
+              <HiOutlineMusicNote className="spacer__note-set__note" />
+              <IoMdMusicalNotes className="spacer__note-set__note" />
+              <FaItunesNote className="spacer__note-set__note" />
+              <GiMusicalNotes className="spacer__note-set__note" />
+              <IoMdMusicalNotes className="spacer__note-set__note" />
+              <HiOutlineMusicNote className="spacer__note-set__note" />
+              <BsMusicNoteBeamed className="spacer__note-set__note" />
+            </div>
+          </div>
         </div>
       </div>
     </>
   );
-}
+};
+export default Home;
