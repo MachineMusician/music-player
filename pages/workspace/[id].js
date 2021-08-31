@@ -3,6 +3,7 @@ import { useState } from "react";
 import Head from "next/head";
 import { GoPlus } from "react-icons/go";
 import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
+import Modal from "../../src/components/Modal";
 
 const Workspace = () => {
   const router = useRouter();
@@ -98,6 +99,7 @@ const Workspace = () => {
             style={{ visibility: "hidden" }}
           />
         </form>
+        <Modal />
       </div>
     </>
   );

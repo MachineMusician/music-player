@@ -1,0 +1,186 @@
+@import "./Modal_leftBox.scss";
+@import "./Modal_rightBox.scss";
+
+@import "./Modal_leftForm.scss";
+@import "./Modal_rightForm.scss";
+
+:root {
+  --nav-height: 80px;
+}
+
+.modal-trigger {
+  position: absolute;
+  top: var(--nav-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
+  background-color: tomato;
+  color: white;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.modal-toggle {
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  will-change: transition;
+  transition: 0.5s;
+}
+
+.modal-toggle.active {
+  visibility: visible;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.modal-screen {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: clamp(40rem, 250vh, 100vh);
+  background-color: #03a9f4;
+  position: absolute;
+  top: var(--nav-height);
+  left: 0;
+  will-change: transition;
+  transition: 1s;
+}
+
+.modal-screen.active {
+  background-color: #f43648;
+}
+
+.modal-container {
+  position: relative;
+  width: 80%;
+  height: clamp(32rem, 80%, 35rem);
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container__bg {
+  // position: absolute;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  flex-wrap: wrap;
+  width: 100%;
+  // height: 35rem;
+  height: 100%;
+  background-color: rgba(225, 225, 225, 0.2);
+  box-shadow: 0 5px 45px rgba(0, 0, 0, 0.15);
+
+  .container__box {
+    background-color: wheat;
+    border-radius: 5px;
+    height: clamp(20rem, 35rem, 30rem);
+    min-width: 20rem;
+    display: flex;
+    flex-basis: 100%;
+    flex: 1;
+    margin: 0.3rem;
+  }
+}
+
+.container__formBox {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  box-shadow: 0 5px 45px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  background-color: #fff;
+  overflow: hidden;
+  transition: 0.5s ease-out;
+}
+
+.container__formBox.leftForm {
+  top: 0;
+  left: 0;
+}
+
+.container__formBox.rightForm {
+  top: 0;
+  left: 50%;
+}
+
+.leftForm.active .leftForm__contents {
+  left: -100%;
+}
+
+.leftForm.active .rightForm__contents {
+  left: 0;
+}
+
+@media screen and (max-width: 55rem) {
+  .modal-screen {
+    height: clamp(70rem, 100rem, 80vh);
+  }
+  .modal-container {
+    position: relative;
+    width: 80%;
+    height: 30rem;
+    margin: 2rem;
+    .container__bg {
+      background-color: inherit;
+      box-shadow: none;
+    }
+  }
+
+  .container__formBox {
+    width: 100%;
+    height: 108%;
+    top: 0;
+    box-shadow: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container__formBox.leftForm {
+    top: 0;
+    left: 0;
+    transition: 0.5s ease-out;
+  }
+
+  .container__formBox.rightForm {
+    top: 109%;
+    left: 0;
+    transition: 0.5s ease-out;
+  }
+
+  .leftForm__contents {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .rightForm__contents {
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+
+  .leftForm.active .leftForm__contents {
+    top: -100%;
+    left: 0;
+  }
+
+  .leftForm.active .rightForm__contents {
+    top: 0;
+    left: 0;
+  }
+}

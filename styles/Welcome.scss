@@ -56,7 +56,14 @@
   justify-content: center;
   flex-shrink: 2;
   margin-right: 5%;
-  background-color: rgba(229, 194, 194, 0.226);
+  // background-color: rgba(229, 194, 194, 0.226);
+  // z-index: 3;
+  background: linear-gradient(
+    to right bottom,
+    rgba(225, 225, 225, 0.2),
+    rgba(225, 225, 225, 0.2)
+  );
+  backdrop-filter: blur(1rem);
   border-radius: 10px;
   opacity: 0;
   will-change: transition;
