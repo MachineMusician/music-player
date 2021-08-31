@@ -1,5 +1,8 @@
 import Head from "next/head";
 import { useState } from "react";
+import { AiOutlineGithub } from "react-icons/ai";
+import { RiReactjsLine } from "react-icons/ri";
+import { GiSoapExperiment } from "react-icons/gi";
 
 export default function Home() {
   const [position, setPosition] = useState(0);
@@ -98,14 +101,47 @@ export default function Home() {
             </div>
             <div
               className={
-                position > 3000
+                position > 2000
                   ? "welcome__container__contents__content active f"
                   : "welcome__container__contents__content f"
               }
             >
-              <span>Contact to us</span>
-              <p>Web developer</p>
-              <p>AI model developer</p>
+              <div className="welcome__container__contents__content__aboutus">
+                <span className="welcome__container__contents__content__aboutus__title">
+                  Contact to us
+                </span>
+                <div className="aboutus__column">
+                  <div className="aboutus__column__title">
+                    <GiSoapExperiment className="aboutus__column__title__icon" />
+                    <h3>AI model developer</h3>
+                  </div>
+                  <div className="aboutus__column__content">
+                    <span>maymeey@naver.com</span>
+                  </div>
+                </div>
+                <div className="aboutus__column">
+                  <div className="aboutus__column__title">
+                    <RiReactjsLine className="aboutus__column__title__icon" />
+                    <h3>Web developer</h3>
+                  </div>
+                  <div className="aboutus__column__content">
+                    <span>chocomilk8604@gmail.com</span>
+                  </div>
+                </div>
+                <div className="aboutus__column">
+                  <div className="aboutus__column__title">
+                    <AiOutlineGithub className="aboutus__column__title__icon" />
+                    <h3>
+                      <a
+                        href="https://github.com/MachineMusician"
+                        target="_blank"
+                      >
+                        Go to GitHub
+                      </a>
+                    </h3>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div className="spacer wave1"></div>
