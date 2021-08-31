@@ -53,8 +53,10 @@ export default function Home() {
               //   transform: `translateX(-${position}px)`,
               // }}
             >
-              <span>Test your notes right now</span>
-              <img src="./headphone_and_note.jpg" alt="hi" />
+              <div className="welcome__container__contents__content__inner-content">
+                <span>Test your notes right now</span>
+                <img src="./headphone_and_note.jpg" alt="hi" />
+              </div>
             </div>
 
             <div
@@ -64,8 +66,10 @@ export default function Home() {
                   : "welcome__container__contents__content b"
               }
             >
-              <span>Step 1 : Take a picture of your note!</span>
-              <img src="./phone_camera2.jpg" alt="hi" />
+              <div className="welcome__container__contents__content__inner-content">
+                <span>Step 1 : Take a picture of your note!</span>
+                <img src="./phone_camera2.jpg" alt="hi" />
+              </div>
             </div>
             <div
               className={
@@ -74,8 +78,10 @@ export default function Home() {
                   : "welcome__container__contents__content c"
               }
             >
-              <span>Step 2 : Choose an instrument you want to listen to</span>
-              <img src="./instrument.png" alt="hi" />
+              <div className="welcome__container__contents__content__inner-content">
+                <span>Step 2 : Choose an instrument you want to listen to</span>
+                <img src="./instrument.png" alt="hi" />
+              </div>
             </div>
 
             <div
@@ -85,8 +91,10 @@ export default function Home() {
                   : "welcome__container__contents__content d"
               }
             >
-              <span>Step 3: Play it!!</span>
-              <img src="./listening.jpg" alt="hi" />
+              <div className="welcome__container__contents__content__inner-content">
+                <span>Step 3: Play it!!</span>
+                <img src="./listening.jpg" alt="hi" />
+              </div>
             </div>
 
             <div
@@ -96,8 +104,12 @@ export default function Home() {
                   : "welcome__container__contents__content e"
               }
             >
-              <span>Step 4: Upload to the dashboard and share your works!</span>
-              <img src="./upload.png" alt="hi" />
+              <div className="welcome__container__contents__content__inner-content">
+                <span>
+                  Step 4: Upload to the dashboard and share your works!
+                </span>
+                <img src="./upload.png" alt="hi" />
+              </div>
             </div>
             <div
               className={
@@ -106,39 +118,41 @@ export default function Home() {
                   : "welcome__container__contents__content f"
               }
             >
-              <div className="welcome__container__contents__content__aboutus">
-                <span className="welcome__container__contents__content__aboutus__title">
-                  Contact to us
-                </span>
-                <div className="aboutus__column">
-                  <div className="aboutus__column__title">
-                    <GiSoapExperiment className="aboutus__column__title__icon" />
-                    <h3>AI model developer</h3>
+              <div className="welcome__container__contents__content__inner-content">
+                <div className="welcome__container__contents__content__aboutus">
+                  <span className="welcome__container__contents__content__aboutus__title">
+                    Contact to us
+                  </span>
+                  <div className="aboutus__column">
+                    <div className="aboutus__column__title">
+                      <GiSoapExperiment className="aboutus__column__title__icon" />
+                      <h3>AI model developer</h3>
+                    </div>
+                    <div className="aboutus__column__content">
+                      <span>maymeey@naver.com</span>
+                    </div>
                   </div>
-                  <div className="aboutus__column__content">
-                    <span>maymeey@naver.com</span>
+                  <div className="aboutus__column">
+                    <div className="aboutus__column__title">
+                      <RiReactjsLine className="aboutus__column__title__icon" />
+                      <h3>Web developer</h3>
+                    </div>
+                    <div className="aboutus__column__content">
+                      <span>chocomilk8604@gmail.com</span>
+                    </div>
                   </div>
-                </div>
-                <div className="aboutus__column">
-                  <div className="aboutus__column__title">
-                    <RiReactjsLine className="aboutus__column__title__icon" />
-                    <h3>Web developer</h3>
-                  </div>
-                  <div className="aboutus__column__content">
-                    <span>chocomilk8604@gmail.com</span>
-                  </div>
-                </div>
-                <div className="aboutus__column">
-                  <div className="aboutus__column__title">
-                    <AiOutlineGithub className="aboutus__column__title__icon" />
-                    <h3>
-                      <a
-                        href="https://github.com/MachineMusician"
-                        target="_blank"
-                      >
-                        Go to GitHub
-                      </a>
-                    </h3>
+                  <div className="aboutus__column">
+                    <div className="aboutus__column__title">
+                      <AiOutlineGithub className="aboutus__column__title__icon" />
+                      <h3>
+                        <a
+                          href="https://github.com/MachineMusician"
+                          target="_blank"
+                        >
+                          Go to GitHub
+                        </a>
+                      </h3>
+                    </div>
                   </div>
                 </div>
               </div>
