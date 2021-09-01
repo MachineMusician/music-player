@@ -75,15 +75,9 @@ const Workspace = () => {
                   />
                 </div>
               </div>
+              <Modal />
             </>
           )}
-          {/* 
-        {!fileString && (
-          <div className="workspace__description">
-            <h4>Take a picture of your note!!</h4>
-            <p>You can upload image file and play it</p>
-          </div>
-        )} */}
 
           <form id="workspace__form">
             <label htmlFor="upload-image">
@@ -102,7 +96,6 @@ const Workspace = () => {
               style={{ visibility: "hidden" }}
             />
           </form>
-          <Modal />
         </div>
       </div>
     </>

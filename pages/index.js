@@ -144,15 +144,13 @@ const Home = () => {
                   </div>
                   <div className="aboutus__column">
                     <div className="aboutus__column__title">
-                      <AiOutlineGithub className="aboutus__column__title__icon" />
-                      <h3>
-                        <a
-                          href="https://github.com/MachineMusician"
-                          target="_blank"
-                        >
-                          Go to GitHub
-                        </a>
-                      </h3>
+                      <a
+                        href="https://github.com/MachineMusician"
+                        target="_blank"
+                      >
+                        <AiOutlineGithub className="aboutus__column__title__icon" />
+                        <h3>Go to GitHub</h3>
+                      </a>
                     </div>
                   </div>
                 </div>

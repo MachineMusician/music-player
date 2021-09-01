@@ -115,6 +115,13 @@
           font-size: 2.5rem;
           margin: 0 1rem;
         }
+        &:last-child {
+          a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
       }
       .aboutus__column__content {
         width: 100%;

@@ -53,6 +53,7 @@
   backdrop-filter: blur(10px);
   will-change: transition;
   transition: 1s;
+  z-index: 10;
 }
 
 .modal-screen.active {
