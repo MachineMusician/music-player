@@ -99,15 +99,30 @@ const Workspace = () => {
             />
           </form>
 
-          <BsQuestionCircleFill onClick={() => setClickInfo(!clickInfo)} />
+          <BsQuestionCircleFill
+            className="workspace-infoIcon"
+            onClick={() => setClickInfo(!clickInfo)}
+          />
           {clickInfo && (
-            <div className="workspace__showHow">
+            <div
+              className={
+                clickInfo ? "workspace__showHow active" : "workspace__showHow"
+              }
+            >
               <div className="workspace__showHow__container">
                 <div className="workspace__showHow__container__cards">
                   <div className="workspace__showHow__container__cards__card">
                     <h4>title</h4>
                     <p>contents</p>
                   </div>
+                  {/* <div className="workspace__showHow__container__cards__card">
+                    <h4>title</h4>
+                    <p>contents</p>
+                  </div>
+                  <div className="workspace__showHow__container__cards__card">
+                    <h4>title</h4>
+                    <p>contents</p>
+                  </div> */}
                 </div>
               </div>
             </div>

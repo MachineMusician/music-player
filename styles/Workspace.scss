@@ -21,6 +21,11 @@
   padding-top: 10rem;
 }
 
+.workspace-infoIcon {
+  font-size: 2rem;
+  color: $clr-white;
+  z-index: 5;
+}
 .workspace__work {
   display: flex;
   align-items: center;
