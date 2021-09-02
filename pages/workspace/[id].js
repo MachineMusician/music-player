@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import Head from "next/head";
 import { GoPlus } from "react-icons/go";
+import { BsQuestionCircleFill } from "react-icons/bs";
 import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
 import Modal from "../../src/components/Modal";
 
@@ -10,6 +11,7 @@ const Workspace = () => {
   const { id } = router.query; // info of random user
   const [fileString, setFileString] = useState("");
   const [playMusic, setPlayMusic] = useState(false);
+  const [clickInfo, setClickInfo] = useState(false);
 
   const onFileChange = (event) => {
     const {
@@ -96,6 +98,20 @@ const Workspace = () => {
               style={{ visibility: "hidden" }}
             />
           </form>
+
+          <BsQuestionCircleFill onClick={() => setClickInfo(!clickInfo)} />
+          {clickInfo && (
+            <div className="workspace__showHow">
+              <div className="workspace__showHow__container">
+                <div className="workspace__showHow__container__cards">
+                  <div className="workspace__showHow__container__cards__card">
+                    <h4>title</h4>
+                    <p>contents</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </>
