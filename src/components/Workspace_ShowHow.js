@@ -22,52 +22,60 @@ const Workspace_showHow = () => {
             onClick={handleLeftChev}
           />
           <div className="workspace__showHow__container__cards">
-            <CSSTransition
-              in={activeMenu === 1}
-              timeout={500}
-              classNames="workspace__showHow__container__cards__card card1"
-              unmountOnExit
-            >
-              <div className="card">
-                <h4>1. Take a picture of your note.</h4>
-                <p>The result can be diffrent depends on the resolution.</p>
-              </div>
-            </CSSTransition>
+            <div className="workspace__showHow__container__cards__card">
+              <CSSTransition
+                in={activeMenu === 1}
+                timeout={500}
+                classNames="card1"
+                unmountOnExit
+              >
+                <div className="card__contents">
+                  <h4>1. Take a picture of your note.</h4>
+                  <p>The result can be diffrent depends on the resolution.</p>
+                </div>
+              </CSSTransition>
+            </div>
 
-            <CSSTransition
-              in={activeMenu === 2}
-              timeout={500}
-              classNames="workspace__showHow__container__cards__card card2"
-              unmountOnExit
-            >
-              <div className="card">
-                <h4>Crop your image if you want.</h4>
-                <p>Make sure you have only one line of your note.</p>
-              </div>
-            </CSSTransition>
+            <div className="workspace__showHow__container__cards__card">
+              <CSSTransition
+                in={activeMenu === 2}
+                timeout={500}
+                classNames="card2"
+                unmountOnExit
+              >
+                <div className="card__contents">
+                  <h4>Crop your image if you want.</h4>
+                  <p>Make sure you have only one line of your note.</p>
+                </div>
+              </CSSTransition>
+            </div>
 
-            <CSSTransition
-              in={activeMenu === 3}
-              timeout={500}
-              classNames="workspace__showHow__container__cards__card card3"
-              unmountOnExit
-            >
-              <div className="card">
-                <h4>Hit the check button.</h4>
-                <p>Make sure you have only one line of your note.</p>
-              </div>
-            </CSSTransition>
+            <div className="workspace__showHow__container__cards__card">
+              <CSSTransition
+                in={activeMenu === 3}
+                timeout={500}
+                classNames="card3"
+                unmountOnExit
+              >
+                <div className="card__contents">
+                  <h4>Hit the check button.</h4>
+                  <p>Make sure you have only one line of your note.</p>
+                </div>
+              </CSSTransition>
+            </div>
 
-            <CSSTransition
-              in={activeMenu === 4}
-              timeout={500}
-              classNames="workspace__showHow__container__cards__card card4"
-              unmountOnExit
-            >
-              <div className="card">
-                <h4>Just wait a sec...</h4>
-              </div>
-            </CSSTransition>
+            <div className="workspace__showHow__container__cards__card">
+              <CSSTransition
+                in={activeMenu === 4}
+                timeout={500}
+                classNames="card4"
+                unmountOnExit
+              >
+                <div className="card__contents">
+                  <h4>Just wait a sec...</h4>
+                </div>
+              </CSSTransition>
+            </div>
           </div>
           <BsChevronRight
             className="workspace__showHow__container__chevron"
