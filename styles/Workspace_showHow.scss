@@ -7,7 +7,7 @@
   right: 0;
   bottom: auto;
 
-  width: 90%;
+  width: 60%;
   height: 70%;
   margin: auto;
   display: flex;
@@ -49,6 +49,7 @@
   padding: 10px;
   width: 80%;
   height: 70%;
+  position: relative;
 }
 
 .carousel__track {
@@ -57,9 +58,16 @@
 
 .carousel__slide {
   position: absolute;
-  // top: 0;
+  top: 0;
   width: 100%;
+  opacity: 0;
+  transition: all 0.3s ease;
 }
+
+.carousel__slide.active {
+  opacity: 1;
+}
+
 .carousel__nav {
   display: flex;
   justify-content: center;

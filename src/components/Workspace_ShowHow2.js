@@ -1,17 +1,22 @@
 import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Workspace_showHow2 = () => {
   const [activeMenu, setActiveMenu] = useState(1);
+  const [clickedChev, setClickedChev] = useState("");
+  const [slideWidth, setSlideWidth] = useState(null);
 
   const handleLeftChev = () => {
     if (activeMenu === 1) return;
-    return setActiveMenu(activeMenu - 1);
+    setActiveMenu(activeMenu - 1);
+    setClickedChev("left");
   };
   const handleRightChev = () => {
     if (activeMenu === 5) return;
-    return setActiveMenu(activeMenu + 1);
+    setActiveMenu(activeMenu + 1);
+    setClickedChev("right");
   };
+
   return (
     <>
       <div className="carousel">
@@ -25,17 +30,45 @@ const Workspace_showHow2 = () => {
 
           <div className="carousel__track-container">
             <ul className="carousel__track">
-              <li className="carousel__slide">
+              <li
+                className={
+                  activeMenu === 1
+                    ? "carousel__slide active"
+                    : "carousel__slide"
+                }
+              >
                 <h4>1. Take a picture of your note.</h4>
                 <p>The result can be diffrent depends on the resolution.</p>
               </li>
-              <li className="carousel__slide">
-                <h4>1. Take a picture of your note.</h4>
+              <li
+                className={
+                  activeMenu === 2
+                    ? "carousel__slide active"
+                    : "carousel__slide"
+                }
+              >
+                <h4>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem
+                  similique non porro obcaecati illum tempore iste repellat,
+                  corrupti sapiente. Praesentium odio eaque dolor omnis ipsam
+                  possimus voluptatum eveniet iusto incidunt.
+                </h4>
                 <p>The result can be diffrent depends on the resolution.</p>
               </li>
-              <li className="carousel__slide">
-                <h4>1. Take a picture of your note.</h4>
-                <p>The result can be diffrent depends on the resolution.</p>
+              <li
+                className={
+                  activeMenu === 3
+                    ? "carousel__slide active"
+                    : "carousel__slide"
+                }
+              >
+                <h4>3. Take a picture of your note.</h4>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem
+                  dignissimos odit commodi magni perferendis provident,
+                  voluptatem ad minima dicta reiciendis nobis labore quisquam
+                  veritatis quae eaque incidunt hic exercitationem libero.
+                </p>
               </li>
             </ul>
           </div>
