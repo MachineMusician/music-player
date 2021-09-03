@@ -1,14 +1,15 @@
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import { useState } from "react";
 import Head from "next/head";
 import { GoPlus } from "react-icons/go";
 import { BsQuestionCircleFill } from "react-icons/bs";
 import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
 import Modal from "../../src/components/Modal";
+import Workspace_showHow from "../../src/components/Workspace_ShowHow";
 
 const Workspace = () => {
-  const router = useRouter();
-  const { id } = router.query; // info of random user
+  // const router = useRouter();
+  // const { id } = router.query; // info of random user
   const [fileString, setFileString] = useState("");
   const [playMusic, setPlayMusic] = useState(false);
   const [clickInfo, setClickInfo] = useState(false);
@@ -36,14 +37,13 @@ const Workspace = () => {
     setPlayMusic(!playMusic);
   };
 
-  const handleDuration = () => {};
-
   return (
     <>
       <Head>
         <title>Go To Play</title>
         <meta name="description" content="playing music" />
       </Head>
+
       <div className="workspace-container">
         <div className="workspace">
           {fileString && ( //
@@ -73,7 +73,6 @@ const Workspace = () => {
                     max="100"
                     value="0"
                     id="workspace__work__controller__slidebar"
-                    onChange={handleDuration}
                   />
                 </div>
               </div>
@@ -103,30 +102,8 @@ const Workspace = () => {
             className="workspace-infoIcon"
             onClick={() => setClickInfo(!clickInfo)}
           />
-          {clickInfo && (
-            <div
-              className={
-                clickInfo ? "workspace__showHow active" : "workspace__showHow"
-              }
-            >
-              <div className="workspace__showHow__container">
-                <div className="workspace__showHow__container__cards">
-                  <div className="workspace__showHow__container__cards__card">
-                    <h4>title</h4>
-                    <p>contents</p>
-                  </div>
-                  {/* <div className="workspace__showHow__container__cards__card">
-                    <h4>title</h4>
-                    <p>contents</p>
-                  </div>
-                  <div className="workspace__showHow__container__cards__card">
-                    <h4>title</h4>
-                    <p>contents</p>
-                  </div> */}
-                </div>
-              </div>
-            </div>
-          )}
+
+          {clickInfo && <Workspace_showHow />}
         </div>
       </div>
     </>
