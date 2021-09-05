@@ -1,11 +1,13 @@
 // import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import { GoPlus } from "react-icons/go";
 import { BsQuestionCircleFill } from "react-icons/bs";
 import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
 import Modal from "../../src/components/Modal";
 import Workspace_showHow from "../../src/components/Workspace_ShowHow";
+import Cropper from "react-cropper";
+import "cropperjs/dist/cropper.css";
 
 const Workspace = () => {
   // const router = useRouter();
@@ -13,6 +15,9 @@ const Workspace = () => {
   const [fileString, setFileString] = useState("");
   const [playMusic, setPlayMusic] = useState(false);
   const [clickInfo, setClickInfo] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [cropper, setCropper] = useState(null);
+  const [cropData, setCropData] = useState("");
 
   const onFileChange = (event) => {
     const {
@@ -37,6 +42,12 @@ const Workspace = () => {
     setPlayMusic(!playMusic);
   };
 
+  const getCropData = () => {
+    if (typeof cropper !== "undefined") {
+      setCropData(cropper.getCroppedCanvas().toDataURL());
+    }
+  };
+
   return (
     <>
       <Head>
@@ -49,11 +60,28 @@ const Workspace = () => {
           {fileString && ( //
             <>
               <div className="workspace__work">
-                <img
+                {/* <img // target here
                   className="workspace__work__img"
                   src={fileString}
                   width="100px"
                   height="100px"
+                /> */}
+                <Cropper
+                  src={fileString}
+                  guides={true}
+                  style={{ height: "100%", width: "100%" }}
+                  zoomTo={0.5}
+                  initialAspectRatio={1}
+                  viewMode={1}
+                  minCropBoxHeight={10}
+                  minCropBoxWidth={10}
+                  background={false}
+                  responsive={true}
+                  autoCropArea={1}
+                  checkOrientation={false}
+                  onInitialized={(instance) => {
+                    setCropper(instance);
+                  }}
                 />
                 <div className="workspace__work__controller">
                   {playMusic ? (
@@ -74,8 +102,10 @@ const Workspace = () => {
                     value="0"
                     id="workspace__work__controller__slidebar"
                   />
+                  <button onClick={getCropData}>Crop Image</button>
                 </div>
               </div>
+              <img src={cropData} alt="cropped" />
               <Modal />
             </>
           )}
@@ -103,7 +133,7 @@ const Workspace = () => {
             onClick={() => setClickInfo(!clickInfo)}
           />
 
-          {clickInfo ? <Workspace_showHow /> : null}
+          {clickInfo && <Workspace_showHow />}
         </div>
       </div>
     </>
