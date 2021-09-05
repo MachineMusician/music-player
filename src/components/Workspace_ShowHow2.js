@@ -2,7 +2,7 @@ import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import { useEffect, useState } from "react";
 
 const Workspace_showHow2 = () => {
-  const [activeMenu, setActiveMenu] = useState(1);
+  const [activeMenu, setActiveMenu] = useState(0);
   const [clickedChev, setClickedChev] = useState("");
   const [slideWidth, setSlideWidth] = useState(null);
 
@@ -16,6 +16,8 @@ const Workspace_showHow2 = () => {
     setActiveMenu(activeMenu + 1);
     setClickedChev("right");
   };
+
+  const handleIndicator = () => {};
 
   return (
     <>
@@ -83,9 +85,38 @@ const Workspace_showHow2 = () => {
             />
           </button>
           <div className="carousel__nav">
-            <button className="carousel__indicator current-slide"></button>
-            <button className="carousel__indicator"></button>
-            <button className="carousel__indicator"></button>
+            <button
+              className={
+                activeMenu === 0
+                  ? "carousel__indicator current-slide"
+                  : "carousel__indicator"
+              }
+              onClick={() => setActiveMenu(0)}
+            ></button>
+            <button
+              className={
+                activeMenu === 1
+                  ? "carousel__indicator current-slide"
+                  : "carousel__indicator"
+              }
+              onClick={() => setActiveMenu(1)}
+            ></button>
+            <button
+              className={
+                activeMenu === 2
+                  ? "carousel__indicator current-slide"
+                  : "carousel__indicator"
+              }
+              onClick={() => setActiveMenu(2)}
+            ></button>
+            <button
+              className={
+                activeMenu === 3
+                  ? "carousel__indicator current-slide"
+                  : "carousel__indicator"
+              }
+              onClick={() => setActiveMenu(3)}
+            ></button>
           </div>
         </div>
       </div>
