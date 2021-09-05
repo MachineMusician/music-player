@@ -5,8 +5,7 @@ import { GoPlus } from "react-icons/go";
 import { BsQuestionCircleFill } from "react-icons/bs";
 import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
 import Modal from "../../src/components/Modal";
-// import Workspace_showHow from "../../src/components/Workspace_ShowHow";
-import Workspace_showHow2 from "../../src/components/Workspace_ShowHow2";
+import Workspace_showHow from "../../src/components/Workspace_ShowHow";
 
 const Workspace = () => {
   // const router = useRouter();
@@ -104,7 +103,7 @@ const Workspace = () => {
             onClick={() => setClickInfo(!clickInfo)}
           />
 
-          {clickInfo && <Workspace_showHow2 />}
+          {clickInfo && <Workspace_showHow />}
         </div>
       </div>
     </>
