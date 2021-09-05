@@ -179,7 +179,7 @@ const Modal = () => {
                   Notice!!
                 </div>
                 <p className="rightForm__content rightForm__info">
-                  Your work will be uploaded on dashboard. Make sure it's okay
+                  Your work will be uploaded on dashboard. Make sure it is okay
                   to be public.
                 </p>
 

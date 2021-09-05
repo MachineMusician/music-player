@@ -7,12 +7,12 @@ const Workspace_showHow2 = () => {
   const [slideWidth, setSlideWidth] = useState(null);
 
   const handleLeftChev = () => {
-    if (activeMenu === 1) return;
+    if (activeMenu === 0) return;
     setActiveMenu(activeMenu - 1);
     setClickedChev("left");
   };
   const handleRightChev = () => {
-    if (activeMenu === 5) return;
+    if (activeMenu === 3) return;
     setActiveMenu(activeMenu + 1);
     setClickedChev("right");
   };
@@ -32,7 +32,7 @@ const Workspace_showHow2 = () => {
             <ul className="carousel__track">
               <li
                 className={
-                  activeMenu === 1
+                  activeMenu === 0
                     ? "carousel__slide active"
                     : "carousel__slide"
                 }
@@ -42,18 +42,26 @@ const Workspace_showHow2 = () => {
               </li>
               <li
                 className={
+                  activeMenu === 1
+                    ? "carousel__slide active"
+                    : "carousel__slide"
+                }
+              >
+                <h4>2. Crop your image.</h4>
+                <p>
+                  Make sure you have only one line of note in your cropped
+                  picture.
+                </p>
+              </li>
+              <li
+                className={
                   activeMenu === 2
                     ? "carousel__slide active"
                     : "carousel__slide"
                 }
               >
-                <h4>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem
-                  similique non porro obcaecati illum tempore iste repellat,
-                  corrupti sapiente. Praesentium odio eaque dolor omnis ipsam
-                  possimus voluptatum eveniet iusto incidunt.
-                </h4>
-                <p>The result can be diffrent depends on the resolution.</p>
+                <h4>3. Hit the check button and wait a second.</h4>
+                <p>It won't take a long time to get result.</p>
               </li>
               <li
                 className={
@@ -62,13 +70,8 @@ const Workspace_showHow2 = () => {
                     : "carousel__slide"
                 }
               >
-                <h4>3. Take a picture of your note.</h4>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem
-                  dignissimos odit commodi magni perferendis provident,
-                  voluptatem ad minima dicta reiciendis nobis labore quisquam
-                  veritatis quae eaque incidunt hic exercitationem libero.
-                </p>
+                <h4>4. Check an output and share your work!</h4>
+                <p>Click this button to make your work public on dashboard.</p>
               </li>
             </ul>
           </div>

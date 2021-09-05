@@ -146,6 +146,7 @@ const Home = () => {
                     <div className="aboutus__column__title">
                       <a
                         href="https://github.com/MachineMusician"
+                        rel="noreferrer"
                         target="_blank"
                       >
                         <AiOutlineGithub className="aboutus__column__title__icon" />

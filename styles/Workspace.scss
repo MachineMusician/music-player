@@ -96,3 +96,12 @@
   margin-bottom: 1rem;
   font-size: 2rem;
 }
+
+.workspace-infoIcon {
+  color: $clr-white;
+  font-size: 2rem;
+  position: absolute;
+  right: 3%;
+  top: 3%;
+  z-index: 5;
+}
