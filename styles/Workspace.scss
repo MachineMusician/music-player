@@ -100,7 +100,13 @@
 .workspace-infoIcon {
   color: $clr-white;
   font-size: 2rem;
-  position: absolute;
+  position: fixed;
   right: 3%;
-  top: 3%;
+  top: $navbar-height;
+  z-index: 3;
+  transition: color 0.3s ease-out;
+}
+
+.workspace-infoIcon:hover {
+  color: $clr-yellow;
 }

@@ -103,7 +103,7 @@ const Workspace = () => {
             onClick={() => setClickInfo(!clickInfo)}
           />
 
-          {clickInfo && <Workspace_showHow />}
+          {clickInfo ? <Workspace_showHow /> : null}
         </div>
       </div>
     </>

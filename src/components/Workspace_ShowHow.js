@@ -37,21 +37,19 @@ const Workspace_showHow = () => {
                     : "carousel__slide"
                 }
               >
-                <div className="carousel__slide__column">
-                  <h4 className="carousel__slide__column__title">
+                <div className="carousel__slide__info">
+                  <h4 className="carousel__slide__title">
                     1. Take a picture of your note.
                   </h4>
-                  <p className="carousel__slide__column__content">
+                  <p className="carousel__slide__content">
                     The result can be diffrent depends on the resolution.
                   </p>
                 </div>
-                <div className="carousel__slide__column">
-                  <img
-                    className="carousel__slide__column__img"
-                    src="/phone_camera2.jpg"
-                    alt="camera with a phone"
-                  />
-                </div>
+                <img
+                  className="carousel__slide__img"
+                  src="/phone_camera2.jpg"
+                  alt="camera with a phone"
+                />
               </li>
               <li
                 className={
@@ -60,22 +58,20 @@ const Workspace_showHow = () => {
                     : "carousel__slide"
                 }
               >
-                <div className="carousel__slide__column">
-                  <h4 className="carousel__slide__column__title">
+                <div className="carousel__slide__info">
+                  <h4 className="carousel__slide__title">
                     2. Crop your image.
                   </h4>
-                  <p className="carousel__slide__column__content">
+                  <p className="carousel__slide__content">
                     Make sure you have only one line of note in your cropped
                     picture.
                   </p>
                 </div>
-                <div className="carousel__slide__column">
-                  <img
-                    className="carousel__slide__column__img"
-                    src="/note1.jpg"
-                    alt="camera with a phone"
-                  />
-                </div>
+                <img
+                  className="carousel__slide__img"
+                  src="/note1.jpg"
+                  alt="camera with a phone"
+                />
               </li>
               <li
                 className={
@@ -84,21 +80,19 @@ const Workspace_showHow = () => {
                     : "carousel__slide"
                 }
               >
-                <div className="carousel__slide__column">
-                  <h4 className="carousel__slide__column__title">
+                <div className="carousel__slide__info">
+                  <h4 className="carousel__slide__title">
                     3. Hit the check button and wait a second.
                   </h4>
-                  <p className="carousel__slide__column__content">
+                  <p className="carousel__slide__content">
                     It won't take a long time to get result.
                   </p>
                 </div>
-                <div className="carousel__slide__column">
-                  <img
-                    className="carousel__slide__column__img"
-                    src="/listening.jpg"
-                    alt="camera with a phone"
-                  />
-                </div>
+                <img
+                  className="carousel__slide__img"
+                  src="/listening.jpg"
+                  alt="camera with a phone"
+                />
               </li>
               <li
                 className={
@@ -107,21 +101,19 @@ const Workspace_showHow = () => {
                     : "carousel__slide"
                 }
               >
-                <div className="carousel__slide__column">
-                  <h4 className="carousel__slide__column__title">
+                <div className="carousel__slide__info">
+                  <h4 className="carousel__slide__title">
                     4. Check an output and share your work!
                   </h4>
-                  <p className="carousel__slide__column__content">
+                  <p className="carousel__slide__content">
                     Click this button to make your work public on dashboard.
                   </p>
                 </div>
-                <div className="carousel__slide__column">
-                  <img
-                    className="carousel__slide__column__img"
-                    src="/upload.png"
-                    alt="camera with a phone"
-                  />
-                </div>
+                <img
+                  className="carousel__slide__img"
+                  src="/upload.png"
+                  alt="camera with a phone"
+                />
               </li>
             </ul>
           </div>
