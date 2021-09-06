@@ -6,40 +6,38 @@ const Workspace_Cropper = (props) => {
 
   const getCropData = () => {
     if (typeof cropper !== "undefined") {
-      setCropData(cropper.getCroppedCanvas().toDataURL());
+      props.setCropData(cropper.getCroppedCanvas().toDataURL());
+      props.setOpenCropperModal(false);
     }
   };
   return (
     <div className="myCropper">
-      <Cropper
-        className="cropper"
-        src={props.fileString}
-        guides={true}
-        zoomTo={0.1}
-        initialAspectRatio={1}
-        viewMode={4}
-        minCropBoxHeight={10}
-        minCropBoxWidth={10}
-        background={false}
-        responsive={true}
-        autoCropArea={2}
-        checkOrientation={false}
-        style={
-          {
-            // width: "600px",
-            // height: "1000px",
-            // width: "100%",
-            // height: "100%",
-            // position: "absolute",
-            // top: "0",
-            // left: "0",
-          }
-        }
-        onInitialized={(instance) => {
-          setCropper(instance);
-        }}
-      />
-      <button onClick={getCropData}>Crop Image</button>
+      <div className="myCropper-container">
+        <Cropper
+          className="myCropper__realCropper"
+          src={props.fileString}
+          guides={true}
+          zoomTo={0.5}
+          initialAspectRatio={1}
+          viewMode={4}
+          minCropBoxHeight={10}
+          minCropBoxWidth={10}
+          background={false}
+          responsive={true}
+          autoCropArea={1}
+          checkOrientation={false}
+          onInitialized={(instance) => {
+            setCropper(instance);
+          }}
+        />
+        <div className="myCropper__btns">
+          <button className="myCropper__btns__btn" onClick={getCropData}>
+            Crop Image
+          </button>
+          <button className="myCropper__btns__btn">Go Back</button>
+          <button className="myCropper__btns__btn">Open Another</button>
+        </div>
+      </div>
     </div>
   );
 };

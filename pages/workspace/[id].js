@@ -16,7 +16,7 @@ const Workspace = () => {
   const [playMusic, setPlayMusic] = useState(false);
   const [clickInfo, setClickInfo] = useState(false);
   const [cropData, setCropData] = useState("");
-  const [cropMode, setCropMode] = useState(false);
+  const [openCropperModal, setOpenCropperModal] = useState(false);
 
   const onFileChange = (event) => {
     const {
@@ -31,6 +31,7 @@ const Workspace = () => {
         currentTarget: { result },
       } = finishedEvent;
       setFileString(result);
+      setOpenCropperModal(true);
     };
     if (targetFile) {
       reader.readAsDataURL(targetFile);
@@ -50,9 +51,13 @@ const Workspace = () => {
 
       <div className="workspace-container">
         <div className="workspace">
-          {fileString && (
+          {openCropperModal && (
             <>
-              <Workspace_Cropper fileString={fileString} />
+              <Workspace_Cropper
+                fileString={fileString}
+                setCropData={setCropData}
+                setOpenCropperModal={setOpenCropperModal}
+              />
             </>
           )}
 
@@ -79,7 +84,11 @@ const Workspace = () => {
                     id="workspace__work__controller__slidebar"
                   />
                 </div>
-                <img src={cropData} alt="cropped" />
+                <img
+                  className="workspace__work__croppedImage"
+                  src={cropData}
+                  alt="cropped"
+                />
                 <Modal />
               </>
             )}

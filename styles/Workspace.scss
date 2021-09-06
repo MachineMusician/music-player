@@ -27,37 +27,16 @@
   height: 100%;
 }
 
-.cropper {
-  // height: 800px;
-  // width: 500px;
-  position: absolute;
-  inset: 0;
-  width: 300px;
-  height: 700px;
-  z-index: 10;
-}
-
 .workspace__work {
   display: flex;
   align-items: center;
   padding: 2rem;
   width: 100%;
 }
-
-.workspace__work__img {
-  flex: 1;
-  object-fit: fill;
-  display: flex;
-  //   width: clamp(10rem, 80%, 14rem);
-  //   height: 65%;
-  width: 15rem;
-  height: 15rem;
-  max-width: 100%;
-  // height: 100%;
-  border-radius: 6px;
-  outline: 3px solid $clr-yellow;
+.workspace__work__croppedImage {
+  width: 300px;
+  // to do more
 }
-
 .workspace__work__controller {
   flex: 2;
   padding: 2rem;
