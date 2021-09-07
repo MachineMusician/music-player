@@ -60,7 +60,7 @@ const Modal = () => {
   return (
     <>
       <div
-        className="modal-trigger"
+        className={modalTrigger ? "modal-trigger active" : "modal-trigger"}
         onClick={() => setModalTrigger((prev) => !prev)}
       >
         <BiUpload />

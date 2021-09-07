@@ -11,14 +11,14 @@
 .workspace {
   width: 100%;
   max-width: 1000px;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   // padding: 10rem 0;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 10rem;
+  padding-top: 3rem;
 }
 
 .workspace__cropping-bg {

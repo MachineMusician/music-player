@@ -3,18 +3,14 @@ import { useState } from "react";
 
 const Workspace_showHow = () => {
   const [activeMenu, setActiveMenu] = useState(0);
-  const [clickedChev, setClickedChev] = useState("");
-  const [slideWidth, setSlideWidth] = useState(null);
 
   const handleLeftChev = () => {
     if (activeMenu === 0) return;
     setActiveMenu(activeMenu - 1);
-    setClickedChev("left");
   };
   const handleRightChev = () => {
     if (activeMenu === 3) return;
     setActiveMenu(activeMenu + 1);
-    setClickedChev("right");
   };
 
   return (
@@ -38,10 +34,10 @@ const Workspace_showHow = () => {
                 }
               >
                 <div className="carousel__slide__info">
-                  <h4 className="carousel__slide__title">
+                  <h4 className="carousel__slide__info__title">
                     1. Take a picture of your note.
                   </h4>
-                  <p className="carousel__slide__content">
+                  <p className="carousel__slide__info__content">
                     The result can be diffrent depends on the resolution.
                   </p>
                 </div>
@@ -59,10 +55,10 @@ const Workspace_showHow = () => {
                 }
               >
                 <div className="carousel__slide__info">
-                  <h4 className="carousel__slide__title">
+                  <h4 className="carousel__slide__info__title">
                     2. Crop your image.
                   </h4>
-                  <p className="carousel__slide__content">
+                  <p className="carousel__slide__info__content">
                     Make sure you have only one line of note in your cropped
                     picture.
                   </p>
@@ -81,10 +77,10 @@ const Workspace_showHow = () => {
                 }
               >
                 <div className="carousel__slide__info">
-                  <h4 className="carousel__slide__title">
+                  <h4 className="carousel__slide__info__title">
                     3. Hit the check button and wait a second.
                   </h4>
-                  <p className="carousel__slide__content">
+                  <p className="carousel__slide__info__content">
                     It won't take a long time to get result.
                   </p>
                 </div>
@@ -102,10 +98,10 @@ const Workspace_showHow = () => {
                 }
               >
                 <div className="carousel__slide__info">
-                  <h4 className="carousel__slide__title">
+                  <h4 className="carousel__slide__info__title">
                     4. Check an output and share your work!
                   </h4>
-                  <p className="carousel__slide__content">
+                  <p className="carousel__slide__info__content">
                     Click this button to make your work public on dashboard.
                   </p>
                 </div>
