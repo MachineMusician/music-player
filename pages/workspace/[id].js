@@ -1,9 +1,13 @@
 // import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Head from "next/head";
 import { GoPlus } from "react-icons/go";
 import { BsQuestionCircleFill } from "react-icons/bs";
-import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
+import {
+  AiOutlineClose,
+  AiFillPlayCircle,
+  AiFillPauseCircle,
+} from "react-icons/ai";
 import Modal from "../../src/components/Modal";
 import Workspace_showHow from "../../src/components/Workspace_ShowHow";
 import "cropperjs/dist/cropper.css";
@@ -54,33 +58,41 @@ const Workspace = () => {
           <div className="workspace__work">
             {fileString && ( //
               <>
-                <div className="workspace__work__controller">
-                  {playMusic ? (
-                    <AiFillPauseCircle
-                      className="workspace__work__controller__icon"
-                      onClick={handlePlay}
-                    />
-                  ) : (
-                    <AiFillPlayCircle
-                      className="workspace__work__controller__icon"
-                      onClick={handlePlay}
+                <div className="workspace__work__row">
+                  <div className="workspace__work__row__top-bar">
+                    <h5 className="workspace__work__row__top-bar__index">
+                      # 1
+                    </h5>
+                    <AiOutlineClose className="workspace__work__row__top-bar__closeIcon" />
+                  </div>
+                  {cropData && (
+                    <img
+                      className="workspace__work__croppedImage"
+                      src={cropData}
+                      alt="cropped image"
                     />
                   )}
-                  <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value="0"
-                    id="workspace__work__controller__slidebar"
-                  />
+                  <div className="workspace__work__controller">
+                    {playMusic ? (
+                      <AiFillPauseCircle
+                        className="workspace__work__controller__icon"
+                        onClick={handlePlay}
+                      />
+                    ) : (
+                      <AiFillPlayCircle
+                        className="workspace__work__controller__icon"
+                        onClick={handlePlay}
+                      />
+                    )}
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
+                      value="0"
+                      id="workspace__work__controller__slidebar"
+                    />
+                  </div>
                 </div>
-                {cropData && (
-                  <img
-                    className="workspace__work__croppedImage"
-                    src={cropData}
-                    alt="cropped"
-                  />
-                )}
 
                 {openCropperModal && (
                   <>
