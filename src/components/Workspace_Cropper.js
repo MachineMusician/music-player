@@ -10,16 +10,21 @@ const Workspace_Cropper = (props) => {
       props.setOpenCropperModal(false);
     }
   };
+
+  const handleGoBackBtn = () => {
+    props.setOpenCropperModal(false);
+    // props.setFileString("");
+  };
+
   return (
     <div className="myCropper">
       <div className="myCropper-container">
         <Cropper
           className="myCropper__realCropper"
           src={props.fileString}
-          guides={true}
           zoomTo={0.5}
           initialAspectRatio={1}
-          viewMode={4}
+          viewMode={1}
           minCropBoxHeight={10}
           minCropBoxWidth={10}
           background={false}
@@ -29,12 +34,15 @@ const Workspace_Cropper = (props) => {
           onInitialized={(instance) => {
             setCropper(instance);
           }}
+          guides={true}
         />
         <div className="myCropper__btns">
           <button className="myCropper__btns__btn" onClick={getCropData}>
             Crop Image
           </button>
-          <button className="myCropper__btns__btn">Go Back</button>
+          <button className="myCropper__btns__btn" onClick={handleGoBackBtn}>
+            Go Back
+          </button>
           <button className="myCropper__btns__btn">Open Another</button>
         </div>
       </div>

@@ -51,16 +51,6 @@ const Workspace = () => {
 
       <div className="workspace-container">
         <div className="workspace">
-          {openCropperModal && (
-            <>
-              <Workspace_Cropper
-                fileString={fileString}
-                setCropData={setCropData}
-                setOpenCropperModal={setOpenCropperModal}
-              />
-            </>
-          )}
-
           <div className="workspace__work">
             {fileString && ( //
               <>
@@ -84,11 +74,24 @@ const Workspace = () => {
                     id="workspace__work__controller__slidebar"
                   />
                 </div>
-                <img
-                  className="workspace__work__croppedImage"
-                  src={cropData}
-                  alt="cropped"
-                />
+                {cropData && (
+                  <img
+                    className="workspace__work__croppedImage"
+                    src={cropData}
+                    alt="cropped"
+                  />
+                )}
+
+                {openCropperModal && (
+                  <>
+                    <Workspace_Cropper
+                      fileString={fileString}
+                      setFileString={setFileString}
+                      setCropData={setCropData}
+                      setOpenCropperModal={setOpenCropperModal}
+                    />
+                  </>
+                )}
                 <Modal />
               </>
             )}
