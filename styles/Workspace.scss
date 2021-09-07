@@ -50,6 +50,7 @@
   font-weight: 600;
   color: $clr-white;
   padding: 1rem;
+
   .workspace__work__row__top-bar__index {
     font-style: italic;
   }
@@ -60,7 +61,8 @@
 
 .workspace__work__croppedImage {
   width: 100%;
-  // to do more
+  height: 400px;
+  object-fit: contain;
 }
 
 .workspace__work__controller {

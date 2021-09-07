@@ -46,6 +46,10 @@ const Workspace = () => {
     setPlayMusic(!playMusic);
   };
 
+  const handleClickCloseIcon = () => {
+    setFileString("");
+  };
+
   return (
     <>
       <Head>
@@ -63,7 +67,10 @@ const Workspace = () => {
                     <h5 className="workspace__work__row__top-bar__index">
                       # 1
                     </h5>
-                    <AiOutlineClose className="workspace__work__row__top-bar__closeIcon" />
+                    <AiOutlineClose
+                      className="workspace__work__row__top-bar__closeIcon"
+                      onClick={handleClickCloseIcon}
+                    />
                   </div>
                   {cropData && (
                     <img
