@@ -1,5 +1,6 @@
 // import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import Head from "next/head";
 import { GoPlus } from "react-icons/go";
 import { BsQuestionCircleFill } from "react-icons/bs";
@@ -21,6 +22,33 @@ const Workspace = () => {
   const [clickInfo, setClickInfo] = useState(false);
   const [cropData, setCropData] = useState("");
   const [openCropperModal, setOpenCropperModal] = useState(false);
+
+  const [waveFile, setWaveFile] = useState([]);
+  const [imageFile, setImageFile] = useState([]);
+  const [contents, setContents] = useState(null);
+
+  const API_URL = "http://127.0.0.1:8000/add_music";
+  const sendImage = async () => {
+    try {
+      await axios.post(API_URL, {
+        image_link: "image_link_test",
+      });
+      // need to return wav file.
+      // setWaveFile(wav);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if (cropData !== "") {
+      setImageFile(cropData); // 여러 수정된 이미지 저장
+      // setCropData("");
+    }
+    if (imageFile !== "") {
+      sendImage();
+    }
+  }, [cropData, imageFile]);
 
   const onFileChange = (event) => {
     const {
@@ -57,13 +85,14 @@ const Workspace = () => {
         <meta name="description" content="playing music" />
       </Head>
 
-      {console.log(fileString)}
       <div className="workspace-container">
         <div className="workspace">
           <div className="workspace__work">
             {fileString && ( //
               <>
                 <ul className="workspace__work-list">
+                  {/* {imageFiles.map((imageFile, index) => {
+                    return ( */}
                   <li className="workspace__work-list__row">
                     <div className="workspace__work-list__row__top-bar">
                       <h5 className="workspace__work-list__row__top-bar__index">
@@ -102,6 +131,9 @@ const Workspace = () => {
                       />
                     </div>
                   </li>
+                  {/* );
+                  })} */}
+                  {/* 데이터를 받아서 for loop로 정보 뿌려주기 */}
                 </ul>
 
                 {openCropperModal && (
