@@ -13,7 +13,7 @@ const Workspace_Cropper = (props) => {
 
   const handleGoBackBtn = () => {
     props.setOpenCropperModal(false);
-    // props.setFileString("");
+    props.setFileString("");
   };
 
   return (

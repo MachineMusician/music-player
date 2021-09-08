@@ -57,6 +57,10 @@
   will-change: transform;
   transition: color 0.3s ease-out;
 }
+
+#list__item__volume-controller {
+  margin-left: 1rem;
+}
 .nav__list__item:nth-child(2):hover,
 .nav__list__item:nth-child(3):hover {
   color: $clr-yellow;

@@ -57,49 +57,52 @@ const Workspace = () => {
         <meta name="description" content="playing music" />
       </Head>
 
+      {console.log(fileString)}
       <div className="workspace-container">
         <div className="workspace">
           <div className="workspace__work">
             {fileString && ( //
               <>
-                <div className="workspace__work__row">
-                  <div className="workspace__work__row__top-bar">
-                    <h5 className="workspace__work__row__top-bar__index">
-                      # 1
-                    </h5>
-                    <AiOutlineClose
-                      className="workspace__work__row__top-bar__closeIcon"
-                      onClick={handleClickCloseIcon}
-                    />
-                  </div>
-                  {cropData && (
-                    <img
-                      className="workspace__work__croppedImage"
-                      src={cropData}
-                      alt="cropped image"
-                    />
-                  )}
-                  <div className="workspace__work__controller">
-                    {playMusic ? (
-                      <AiFillPauseCircle
-                        className="workspace__work__controller__icon"
-                        onClick={handlePlay}
+                <ul className="workspace__work-list">
+                  <li className="workspace__work-list__row">
+                    <div className="workspace__work-list__row__top-bar">
+                      <h5 className="workspace__work-list__row__top-bar__index">
+                        # 1
+                      </h5>
+                      <AiOutlineClose
+                        className="workspace__work-list__row__top-bar__closeIcon"
+                        onClick={handleClickCloseIcon}
                       />
-                    ) : (
-                      <AiFillPlayCircle
-                        className="workspace__work__controller__icon"
-                        onClick={handlePlay}
+                    </div>
+                    {cropData && (
+                      <img
+                        className="workspace__work-list__croppedImage"
+                        src={cropData}
+                        alt="cropped image"
                       />
                     )}
-                    <input
-                      type="range"
-                      min="0"
-                      max="100"
-                      value="0"
-                      id="workspace__work__controller__slidebar"
-                    />
-                  </div>
-                </div>
+                    <div className="workspace__work-list__controller">
+                      {playMusic ? (
+                        <AiFillPauseCircle
+                          className="workspace__work-list__controller__icon"
+                          onClick={handlePlay}
+                        />
+                      ) : (
+                        <AiFillPlayCircle
+                          className="workspace__work-list__controller__icon"
+                          onClick={handlePlay}
+                        />
+                      )}
+                      <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        value="0"
+                        id="workspace__work-list__controller__slidebar"
+                      />
+                    </div>
+                  </li>
+                </ul>
 
                 {openCropperModal && (
                   <>
