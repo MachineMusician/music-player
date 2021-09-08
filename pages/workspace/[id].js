@@ -4,11 +4,7 @@ import axios from "axios";
 import Head from "next/head";
 import { GoPlus } from "react-icons/go";
 import { BsQuestionCircleFill } from "react-icons/bs";
-import {
-  AiOutlineClose,
-  AiFillPlayCircle,
-  AiFillPauseCircle,
-} from "react-icons/ai";
+import { AiOutlineClose } from "react-icons/ai";
 import Modal from "../../src/components/Modal";
 import Workspace_showHow from "../../src/components/Workspace_ShowHow";
 import Slider from "../../src/components/Slider";
@@ -39,15 +35,15 @@ const Workspace = () => {
 
   const audioRef = useRef();
 
-  const onChange = (e) => {
+  const onChange = (event) => {
     const audio = audioRef.current;
-    audio.currentTime = (audio.duration / 100) * e.target.value;
-    setPercentage(e.target.value);
+    // audio.currentTime = (audio.duration / 100) * event.target.value;
+    setPercentage(event.target.value);
   };
 
   const play = () => {
     const audio = audioRef.current;
-    audio.volume = 0.1;
+    audio.volume = 0.3;
 
     if (!isPlaying) {
       setIsPlaying(true);
@@ -61,6 +57,7 @@ const Workspace = () => {
   };
 
   const getCurrDuration = (e) => {
+    //
     const percent = (
       (e.currentTarget.currentTime / e.currentTarget.duration) *
       100
@@ -174,12 +171,12 @@ const Workspace = () => {
                       /> */}
                       <Slider percentage={percentage} onChange={onChange} />
                       <audio
+                        src={"../../public/test2.mp3"}
                         ref={audioRef}
                         onTimeUpdate={getCurrDuration}
-                        onLoadedData={(e) => {
-                          setDuration(e.currentTarget.duration.toFixed(2));
+                        onLoadedData={(event) => {
+                          setDuration(event.currentTarget.duration.toFixed(2));
                         }}
-                        src={"../../public/test2.mp3"}
                       ></audio>
                       <ControlPanel
                         play={play}
@@ -191,7 +188,6 @@ const Workspace = () => {
                   </li>
                   {/* );
                   })} */}
-                  {/* 데이터를 받아서 for loop로 정보 뿌려주기 */}
                 </ul>
 
                 {openCropperModal && (

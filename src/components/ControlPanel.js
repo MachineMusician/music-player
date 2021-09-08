@@ -1,3 +1,5 @@
+import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
+
 const ControlPanel = ({ play, isPlaying, duration, currentTime }) => {
   const secondsToHms = (seconds) => {
     if (!seconds) return "00m 00s";
@@ -30,12 +32,10 @@ const ControlPanel = ({ play, isPlaying, duration, currentTime }) => {
   return (
     <div className="control-panel">
       <div className="timer">{secondsToHms(currentTime)}</div>
-      {/* <Button play={play} isPlaying={isPlaying} /> */}
       <div className="btn-container">
-        <div
-          onClick={play}
-          className={isPlaying ? "btn-stop" : "btn-play"}
-        ></div>
+        <div className="btn-container__btn" onClick={play}>
+          {isPlaying ? <AiFillPauseCircle /> : <AiFillPlayCircle />}
+        </div>
       </div>
       <div className="timer">{secondsToHms(duration)}</div>
     </div>
