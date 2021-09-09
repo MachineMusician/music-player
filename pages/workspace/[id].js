@@ -11,6 +11,8 @@ import Slider from "../../src/components/Slider";
 import ControlPanel from "../../src/components/ControlPanel";
 import "cropperjs/dist/cropper.css";
 import Workspace_Cropper from "../../src/components/Workspace_Cropper";
+import Song from "../../public/test2.mp3";
+
 // import song from "../../public/test2.mp3";
 
 const Workspace = () => {
@@ -37,13 +39,13 @@ const Workspace = () => {
 
   const onChange = (event) => {
     const audio = audioRef.current;
-    // audio.currentTime = (audio.duration / 100) * event.target.value;
+    audio.currentTime = (audio.duration / 100) * event.target.value;
     setPercentage(event.target.value);
   };
 
   const play = () => {
     const audio = audioRef.current;
-    audio.volume = 0.3;
+    audio.volume = 1;
 
     if (!isPlaying) {
       setIsPlaying(true);
@@ -172,7 +174,7 @@ const Workspace = () => {
                       /> */}
                       <Slider percentage={percentage} onChange={onChange} />
                       <audio
-                        src={"../../public/test2.mp3"}
+                        src={Song}
                         ref={audioRef}
                         onTimeUpdate={getCurrDuration}
                         onLoadedData={(event) => {
