@@ -108,6 +108,7 @@ const Workspace = () => {
     if (targetFile) {
       reader.readAsDataURL(targetFile);
     }
+    console.log(files);
   };
 
   const handlePlay = () => {

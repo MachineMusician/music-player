@@ -26,20 +26,6 @@ const Home = () => {
       </Head>
       <div className="welcome">
         <div className="welcome__container" onWheel={onWheel}>
-          {/* <section style={{ top: "15%", left: "10%" }}>
-            <div
-              className="welcome__container__content ani1"
-              // style={{
-              //   transform: `translateX(-${position}px)`,
-              // }}
-            >
-              <h2 className={position > 80 ? "effect active" : "effect"}>
-                Take a picture of your note!!
-              </h2>
-              <p>You can play your note before you play it.</p>
-            </div>
-          </section> */}
-
           <div className="welcome__container__contents">
             <h2 className="welcome__container__contents__title">
               Welcome to music player!!
@@ -50,9 +36,6 @@ const Home = () => {
                   ? "welcome__container__contents__content active a"
                   : "welcome__container__contents__content a"
               }
-              // style={{
-              //   transform: `translateX(-${position}px)`,
-              // }}
             >
               <div className="welcome__container__contents__content__inner-content">
                 <span>Test your notes right now</span>
