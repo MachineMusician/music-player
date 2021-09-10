@@ -128,11 +128,11 @@ const Workspace = () => {
                           />
                         </div>
                         <img
-                          className="workspace__work-list__croppeditem"
+                          className="workspace__work-list__row__cropped-image"
                           src={item}
                           alt="cropped image"
                         />
-                        <div className="workspace__work-list__controller">
+                        <div className="workspace__work-list__row___controller">
                           <Slider percentage={percentage} onChange={onChange} />
                           <audio
                             src={Song}
