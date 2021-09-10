@@ -78,6 +78,7 @@ module.exports = {
           /\.woff2$/,
           /\.mp3$/,
           /\.wav$/,
+          /\.mid$/,
         ],
         loader: require.resolve("file-loader"),
         options: {

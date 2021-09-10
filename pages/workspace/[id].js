@@ -11,9 +11,8 @@ import Slider from "../../src/components/Slider";
 import ControlPanel from "../../src/components/ControlPanel";
 import "cropperjs/dist/cropper.css";
 import Workspace_Cropper from "../../src/components/Workspace_Cropper";
+// import Song from "../../public/output.mid";
 import Song from "../../public/test2.mp3";
-
-// import song from "../../public/test2.mp3";
 
 const Workspace = () => {
   // const router = useRouter();
@@ -82,16 +81,6 @@ const Workspace = () => {
     }
   };
 
-  useEffect(() => {
-    if (cropData !== "") {
-      setImageFile(cropData); // 여러 수정된 이미지 저장
-      // setCropData("");
-    }
-    if (imageFile !== "") {
-      sendImage();
-    }
-  }, [cropData, imageFile]);
-
   const onFileChange = (event) => {
     const {
       target: { files },
@@ -110,7 +99,6 @@ const Workspace = () => {
     if (targetFile) {
       reader.readAsDataURL(targetFile);
     }
-    console.log(files);
   };
 
   const handlePlay = () => {
@@ -154,24 +142,6 @@ const Workspace = () => {
                       />
                     )}
                     <div className="workspace__work-list__controller">
-                      {/* {playMusic ? (
-                        <AiFillPauseCircle
-                          className="workspace__work-list__controller__icon"
-                          onClick={handlePlay}
-                        />
-                      ) : (
-                        <AiFillPlayCircle
-                          className="workspace__work-list__controller__icon"
-                          onClick={handlePlay}
-                        />
-                      )}
-                      <input
-                        type="range"
-                        min="0"
-                        max="100"
-                        value="0"
-                        id="workspace__work-list__controller__slidebar"
-                      /> */}
                       <Slider percentage={percentage} onChange={onChange} />
                       <audio
                         src={Song}
