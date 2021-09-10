@@ -80,12 +80,13 @@
     flex-direction: column;
     flex: 1;
     .carousel__slide__info__title {
-      font-size: 2.3rem;
+      font-size: 2.5rem;
       line-height: 2;
       display: flex;
       flex: 1;
+      align-items: center;
       min-width: 28rem;
-      margin: 1rem;
+      margin-left: 3rem;
       color: $clr-yellow;
       text-shadow: //
         0.025em 0.025em 0 black,
@@ -97,11 +98,13 @@
         0.1em 0.1em 0 black;
     }
     .carousel__slide__info__content {
-      font-size: 1.5rem;
+      font-size: 2rem;
       line-height: 2;
       display: flex;
       flex: 1;
-      margin: 1rem;
+      justify-content: center;
+      margin-left: 4rem;
+      max-width: 30rem;
     }
   }
 
@@ -145,7 +148,7 @@
 }
 
 .carousel__indicator.current-slide {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: $clr-yellow;
 }
 
 @media screen and (max-width: 970px) {
