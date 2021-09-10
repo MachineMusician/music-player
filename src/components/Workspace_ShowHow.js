@@ -9,7 +9,7 @@ const Workspace_showHow = () => {
     setActiveMenu(activeMenu - 1);
   };
   const handleRightChev = () => {
-    if (activeMenu === 3) return;
+    if (activeMenu === 4) return;
     setActiveMenu(activeMenu + 1);
   };
 
@@ -56,16 +56,15 @@ const Workspace_showHow = () => {
               >
                 <div className="carousel__slide__info">
                   <h4 className="carousel__slide__info__title">
-                    2. Crop your image.
+                    2. Crop your image if you need.
                   </h4>
                   <p className="carousel__slide__info__content">
-                    Make sure you have only one line of note in your cropped
-                    picture.
+                    Please make sure to includes the first and last notes.
                   </p>
                 </div>
                 <img
-                  className="carousel__slide__img"
-                  src="/note1.jpg"
+                  className="carousel__slide__img object-contain"
+                  src="/show_how.png"
                   alt="camera with a phone"
                 />
               </li>
@@ -78,15 +77,15 @@ const Workspace_showHow = () => {
               >
                 <div className="carousel__slide__info">
                   <h4 className="carousel__slide__info__title">
-                    3. Hit the check button and wait a second.
+                    3. Click play button.
                   </h4>
                   <p className="carousel__slide__info__content">
-                    It won't take a long time to get result.
+                    It won't take a long time to get result. I promise...!
                   </p>
                 </div>
                 <img
-                  className="carousel__slide__img"
-                  src="/listening.jpg"
+                  className="carousel__slide__img object-contain"
+                  src="/click_playBtn.png"
                   alt="camera with a phone"
                 />
               </li>
@@ -99,10 +98,31 @@ const Workspace_showHow = () => {
               >
                 <div className="carousel__slide__info">
                   <h4 className="carousel__slide__info__title">
-                    4. Check an output and share your work!
+                    4. Check out the result.
                   </h4>
                   <p className="carousel__slide__info__content">
-                    Click this button to make your work public on dashboard.
+                    You can remove it. And also you can add multiple music.
+                  </p>
+                </div>
+                <img
+                  className="carousel__slide__img object-contain"
+                  src="/play.png"
+                  alt="camera with a phone"
+                />
+              </li>
+              <li
+                className={
+                  activeMenu === 4
+                    ? "carousel__slide active"
+                    : "carousel__slide"
+                }
+              >
+                <div className="carousel__slide__info">
+                  <h4 className="carousel__slide__info__title">
+                    5. Share your work!
+                  </h4>
+                  <p className="carousel__slide__info__content">
+                    If you satisfied with your work, make your work public!!
                   </p>
                 </div>
                 <img
@@ -153,6 +173,14 @@ const Workspace_showHow = () => {
                   : "carousel__indicator"
               }
               onClick={() => setActiveMenu(3)}
+            ></button>
+            <button
+              className={
+                activeMenu === 4
+                  ? "carousel__indicator current-slide"
+                  : "carousel__indicator"
+              }
+              onClick={() => setActiveMenu(4)}
             ></button>
           </div>
         </div>
