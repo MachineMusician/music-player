@@ -17,30 +17,33 @@ import Song from "../../public/test2.mp3";
 const Workspace = () => {
   // const router = useRouter();
   // const { id } = router.query; // info of random user
-  const [fileString, setFileString] = useState("");
-  const [playMusic, setPlayMusic] = useState(false);
-  const [clickInfo, setClickInfo] = useState(false);
-  const [cropData, setCropData] = useState("");
-  const [openCropperModal, setOpenCropperModal] = useState(false);
-  //
-  const [waveFile, setWaveFile] = useState([]);
-  const [imageFile, setImageFile] = useState([]);
-  const [contents, setContents] = useState(null);
-  const API_URL = "http://127.0.0.1:8000/add_music";
-  //
 
+  // vars about the API url
+  const API_URL = "http://127.0.0.1:8000/add_music";
+  const [imageList, setImageList] = useState([]);
+  const [wavList, setWavList] = useState([]);
+
+  // vars about this page
+  const [fileString, setFileString] = useState("");
+  const [clickInfo, setClickInfo] = useState(false);
+  const [currentCroppedData, setCurrentCroppedData] = useState("");
+  const [openCropperModal, setOpenCropperModal] = useState(false);
+
+  // vars about the music controller
   const [percentage, setPercentage] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
-
   const audioRef = useRef();
 
-  const onChange = (event) => {
-    const audio = audioRef.current;
-    audio.currentTime = (audio.duration / 100) * event.target.value;
-    setPercentage(event.target.value);
-  };
+  // useEffect(() => {
+  //   if (currentCroppedData !== "") {
+  //     const tmp = imageList;
+  //     setImageList([...tmp, currentCroppedData]);
+  //     setCurrentCroppedData("");
+  //     console.log(imageList);
+  //   }
+  // }, [currentCroppedData]);
 
   const play = () => {
     const audio = audioRef.current;
@@ -57,6 +60,12 @@ const Workspace = () => {
     }
   };
 
+  const onChange = (event) => {
+    const audio = audioRef.current;
+    audio.currentTime = (audio.duration / 100) * event.target.value;
+    setPercentage(event.target.value);
+  };
+
   const getCurrDuration = (e) => {
     //
     const percent = (
@@ -67,18 +76,6 @@ const Workspace = () => {
 
     setPercentage(+percent);
     setCurrentTime(time.toFixed(2));
-  };
-
-  const sendImage = async () => {
-    try {
-      await axios.post(API_URL, {
-        image_link: "image_link_test",
-      });
-      // need to return wav file.
-      // setWaveFile(wav);
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   const onFileChange = (event) => {
@@ -101,10 +98,6 @@ const Workspace = () => {
     }
   };
 
-  const handlePlay = () => {
-    setPlayMusic(!playMusic);
-  };
-
   const handleClickCloseIcon = () => {
     setFileString("");
   };
@@ -119,65 +112,66 @@ const Workspace = () => {
       <div className="workspace-container">
         <div className="workspace">
           <div className="workspace__work">
-            {fileString && ( //
+            {imageList.length > 0 && ( //
               <>
                 <ul className="workspace__work-list">
-                  {/* {imageFiles.map((imageFile, index) => {
-                    return ( */}
-                  <li className="workspace__work-list__row">
-                    <div className="workspace__work-list__row__top-bar">
-                      <h5 className="workspace__work-list__row__top-bar__index">
-                        # 1
-                      </h5>
-                      <AiOutlineClose
-                        className="workspace__work-list__row__top-bar__closeIcon"
-                        onClick={handleClickCloseIcon}
-                      />
-                    </div>
-                    {cropData && (
-                      <img
-                        className="workspace__work-list__croppedImage"
-                        src={cropData}
-                        alt="cropped image"
-                      />
-                    )}
-                    <div className="workspace__work-list__controller">
-                      <Slider percentage={percentage} onChange={onChange} />
-                      <audio
-                        src={Song}
-                        ref={audioRef}
-                        onTimeUpdate={getCurrDuration}
-                        onLoadedData={(event) => {
-                          setDuration(event.currentTarget.duration.toFixed(2));
-                        }}
-                      ></audio>
-                      <ControlPanel
-                        play={play}
-                        isPlaying={isPlaying}
-                        duration={duration}
-                        currentTime={currentTime}
-                      />
-                    </div>
-                  </li>
-                  {/* );
-                  })} */}
+                  {imageList.map((item, index) => {
+                    return (
+                      <li className="workspace__work-list__row">
+                        <div className="workspace__work-list__row__top-bar">
+                          <h5 className="workspace__work-list__row__top-bar__index">
+                            # {index + 1}
+                          </h5>
+                          <AiOutlineClose
+                            className="workspace__work-list__row__top-bar__closeIcon"
+                            onClick={handleClickCloseIcon}
+                          />
+                        </div>
+                        <img
+                          className="workspace__work-list__croppeditem"
+                          src={item}
+                          alt="cropped image"
+                        />
+                        <div className="workspace__work-list__controller">
+                          <Slider percentage={percentage} onChange={onChange} />
+                          <audio
+                            src={Song}
+                            ref={audioRef}
+                            onTimeUpdate={getCurrDuration}
+                            onLoadedData={(event) => {
+                              setDuration(
+                                event.currentTarget.duration.toFixed(2)
+                              );
+                            }}
+                          ></audio>
+                          <ControlPanel
+                            play={play}
+                            isPlaying={isPlaying}
+                            duration={duration}
+                            currentTime={currentTime}
+                          />
+                        </div>
+                      </li>
+                    );
+                  })}
                 </ul>
-
-                {openCropperModal && (
-                  <>
-                    <Workspace_Cropper
-                      fileString={fileString}
-                      setFileString={setFileString}
-                      setCropData={setCropData}
-                      setOpenCropperModal={setOpenCropperModal}
-                    />
-                  </>
-                )}
                 <Modal />
               </>
             )}
           </div>
 
+          {openCropperModal && (
+            <>
+              <Workspace_Cropper
+                fileString={fileString}
+                setFileString={setFileString}
+                setCurrentCroppedData={setCurrentCroppedData}
+                setOpenCropperModal={setOpenCropperModal}
+                imageList={imageList}
+                setImageList={setImageList}
+              />
+            </>
+          )}
           <form id="workspace__form">
             <label htmlFor="upload-image">
               <div className="workspace__uploadImg">

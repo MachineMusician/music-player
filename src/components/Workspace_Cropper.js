@@ -6,7 +6,10 @@ const Workspace_Cropper = (props) => {
 
   const getCropData = () => {
     if (typeof cropper !== "undefined") {
-      props.setCropData(cropper.getCroppedCanvas().toDataURL());
+      const croppedImage = cropper.getCroppedCanvas().toDataURL();
+      const imageListTmp = props.imageList;
+      props.setCurrentCroppedData(croppedImage);
+      props.setImageList([...imageListTmp, croppedImage]);
       props.setOpenCropperModal(false);
     }
   };
