@@ -58,7 +58,7 @@ module.exports = {
       //   loader: "sass-loader!style-loader!css-loader",
       // },
       {
-        test: /\.(png|svg|eot|otf|ttf|woff|woff2)$/,
+        test: /\.(png|svg|eot|otf|ttf|woff|woff2|mid)$/,
         use: {
           loader: "url-loader",
           options: {

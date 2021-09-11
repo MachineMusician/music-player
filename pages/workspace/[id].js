@@ -11,7 +11,7 @@ import Slider from "../../src/components/Slider";
 import ControlPanel from "../../src/components/ControlPanel";
 import "cropperjs/dist/cropper.css";
 import Workspace_Cropper from "../../src/components/Workspace_Cropper";
-// import Song from "../../public/output.mid";
+
 import Song from "../../public/test2.mp3";
 
 const Workspace = () => {
@@ -35,15 +35,6 @@ const Workspace = () => {
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const audioRef = useRef();
-
-  // useEffect(() => {
-  //   if (currentCroppedData !== "") {
-  //     const tmp = imageList;
-  //     setImageList([...tmp, currentCroppedData]);
-  //     setCurrentCroppedData("");
-  //     console.log(imageList);
-  //   }
-  // }, [currentCroppedData]);
 
   const play = () => {
     const audio = audioRef.current;
