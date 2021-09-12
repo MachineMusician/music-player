@@ -60,10 +60,10 @@ const Workspace = () => {
         for (let i = 1; i < dirArr.length; i++) {
           dir += dirArr[i] + "/";
         }
-        dir.substr(0, dir.length - 1);
+        dir = dir.substr(0, dir.length - 1);
         console.log(dir);
-
-        const test_file = require(`../../${dir}`).default;
+        const dir_tmp = `../../${dir}`;
+        const test_file = require(dir_tmp).default;
         const audio = new Audio(test_file);
         audio.play();
 
