@@ -26,8 +26,9 @@ const Workspace = () => {
   // vars about this page
   const [fileString, setFileString] = useState("");
   const [clickInfo, setClickInfo] = useState(false);
-  const [currentCroppedData, setCurrentCroppedData] = useState("");
   const [openCropperModal, setOpenCropperModal] = useState(false);
+  const [currentCroppedData, setCurrentCroppedData] = useState("");
+  const [currentWavData, setCurrentWavData] = useState("");
 
   // vars about the music controller
   const [percentage, setPercentage] = useState(0);
@@ -39,19 +40,19 @@ const Workspace = () => {
   const play = async () => {
     const audio = audioRef.current;
     audio.volume = 1;
-    try {
-      // console.log("CROPPED:" + currentCroppedData);
-      const tmp = currentCroppedData.split(",");
-      const sendData = await axios.post(API_URL, {
-        test_image: tmp[1],
-      });
-      console.log("hi");
-      console.log(sendData);
-    } catch (error) {
-      console.log(error);
-    }
 
     if (!isPlaying) {
+      try {
+        // console.log("CROPPED:" + currentCroppedData);
+        const tmp = currentCroppedData.split(",");
+        const sendData = await axios.post(API_URL, {
+          test_image: tmp[1],
+        });
+        // console.log(sendData.data);
+        setCurrentWavData(sendData.data);
+      } catch (error) {
+        console.log(error);
+      }
       setIsPlaying(true);
       audio.play();
     }
@@ -152,7 +153,7 @@ const Workspace = () => {
                         <div className="workspace__work-list__row___controller">
                           <Slider percentage={percentage} onChange={onChange} />
                           <audio
-                            src={Song}
+                            src={currentWavData}
                             ref={audioRef}
                             onTimeUpdate={getCurrDuration}
                             onLoadedData={(event) => {
