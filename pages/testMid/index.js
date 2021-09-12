@@ -54,22 +54,19 @@ const testMid = () => {
       target: { files },
     } = event;
     const targetFile = files[0];
-    console.log(targetFile);
+    // console.log(targetFile);
 
     if (files.length > 0) {
       const reader = new FileReader();
-      console.log(reader);
 
       reader.onload = (loadEvent) => {
         const { target: result } = loadEvent;
         try {
-          console.log(result);
           var wav = synth.midiToWav(result.result).toBlob();
           var src = URL.createObjectURL(wav);
-          console.log(wav, src);
           setMyWav(src);
         } catch (error) {
-          console.log(error);
+          // console.log(error);
         }
       };
       reader.readAsArrayBuffer(targetFile);
@@ -108,7 +105,7 @@ const testMid = () => {
             setDuration(event.currentTarget.duration.toFixed(2));
           }}
         />
-        {console.log(myWav)}
+        {/* {console.log(myWav)} */}
 
         <ControlPanel
           play={play}

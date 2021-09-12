@@ -1,6 +1,8 @@
 // import { useRouter } from "next/router";
 import { useRef, useState } from "react";
+import path from "path";
 import axios from "axios";
+import synth from "synth-js";
 import Head from "next/head";
 import { GoPlus } from "react-icons/go";
 import { BsQuestionCircleFill } from "react-icons/bs";
@@ -43,12 +45,13 @@ const Workspace = () => {
 
     if (!isPlaying) {
       try {
-        // console.log("CROPPED:" + currentCroppedData);
+        // API CALL
         const tmp = currentCroppedData.split(",");
         const sendData = await axios.post(API_URL, {
           test_image: tmp[1],
         });
-        // console.log(sendData.data);
+        console.log(sendData.data); // "/home/leo/HDD/WEB/nextjs/Music-Player-Server/output/test.mid"
+
         setCurrentWavData(sendData.data);
       } catch (error) {
         console.log(error);
@@ -81,37 +84,18 @@ const Workspace = () => {
     setCurrentTime(time.toFixed(2));
   };
 
-  // const onFileChange = (event) => {
-  //   const {
-  //     target: { files },
-  //   } = event;
-  //   const targetFile = files[0];
-  //   const reader = new FileReader();
-  //   reader.onloadend = (finishedEvent) => {
-  //     // convert image file to base64 string
-  //     const {
-  //       currentTarget: { result },
-  //     } = finishedEvent;
-  //     setFileString(result);
-  //     setOpenCropperModal(true);
-  //   };
-  //   if (targetFile) {
-  //     reader.readAsDataURL(targetFile);
-  //   }
-  // };
-
   const onFileChange = (event) => {
     const {
       target: { files },
     } = event;
     const targetFile = files[0];
     // var file = event.target.files[0];
-    console.log(targetFile);
+    // console.log(targetFile);
     var reader = new FileReader();
     reader.onloadend = function (finishedEvent) {
       setFileString(reader.result);
       setOpenCropperModal(true);
-      console.log("RESULT", reader.result);
+      // console.log("RESULT", reader.result);
     };
     reader.readAsDataURL(targetFile);
   };
@@ -147,7 +131,7 @@ const Workspace = () => {
                         </div>
                         <img
                           className="workspace__work-list__row__cropped-image"
-                          src={item}
+                          src={currentCroppedData}
                           alt="cropped image"
                         />
                         <div className="workspace__work-list__row___controller">
