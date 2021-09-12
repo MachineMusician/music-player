@@ -15,7 +15,7 @@ import "cropperjs/dist/cropper.css";
 import Workspace_Cropper from "../../src/components/Workspace_Cropper";
 
 import Song from "../../public/test2.mp3";
-import Song2 from "../../public/test3.wav";
+import Song2 from "../../public/output.mid";
 
 const Workspace = () => {
   // const router = useRouter();
@@ -47,13 +47,24 @@ const Workspace = () => {
     if (!isPlaying) {
       try {
         // API CALL
-        // const tmp = currentCroppedData.split(",");
-        // const sendData = await axios.post(API_URL, {
-        //   test_image: tmp[1],
-        // });
-        // console.log(sendData.data);
+        const tmp = currentCroppedData.split(",");
+        const sendData = await axios.post(API_URL, {
+          test_image: tmp[1],
+        });
+        console.log(sendData.data);
         // "/home/leo/HDD/WEB/nextjs/Music-Player-Server/output/test.mid"
-        const audio = new Audio(Song2);
+        const dirArr = String(sendData.data).split("/");
+        let dir = "";
+
+        console.log(dirArr);
+        for (let i = 1; i < dirArr.length; i++) {
+          dir += dirArr[i] + "/";
+        }
+        dir.substr(0, dir.length - 1);
+        console.log(dir);
+
+        const test_file = require(`../../${dir}`).default;
+        const audio = new Audio(test_file);
         audio.play();
 
         // setCurrentWavData(sendData.data);
