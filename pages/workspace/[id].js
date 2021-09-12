@@ -40,9 +40,10 @@ const Workspace = () => {
     const audio = audioRef.current;
     audio.volume = 1;
     try {
-      console.log("CROPPED:" + currentCroppedData);
+      // console.log("CROPPED:" + currentCroppedData);
+      const tmp = currentCroppedData.split(",");
       const sendData = await axios.post(API_URL, {
-        test_image: currentCroppedData,
+        test_image: tmp[1],
       });
       console.log("hi");
       console.log(sendData);
