@@ -15,6 +15,7 @@ import "cropperjs/dist/cropper.css";
 import Workspace_Cropper from "../../src/components/Workspace_Cropper";
 
 import Song from "../../public/test2.mp3";
+import Song2 from "../../public/test3.wav";
 
 const Workspace = () => {
   // const router = useRouter();
@@ -40,30 +41,33 @@ const Workspace = () => {
   const audioRef = useRef();
 
   const play = async () => {
-    const audio = audioRef.current;
-    audio.volume = 1;
+    // const audio = audioRef.current;
+    // audio.volume = 1;
 
     if (!isPlaying) {
       try {
         // API CALL
-        const tmp = currentCroppedData.split(",");
-        const sendData = await axios.post(API_URL, {
-          test_image: tmp[1],
-        });
-        console.log(sendData.data); // "/home/leo/HDD/WEB/nextjs/Music-Player-Server/output/test.mid"
+        // const tmp = currentCroppedData.split(",");
+        // const sendData = await axios.post(API_URL, {
+        //   test_image: tmp[1],
+        // });
+        // console.log(sendData.data);
+        // "/home/leo/HDD/WEB/nextjs/Music-Player-Server/output/test.mid"
+        const audio = new Audio(Song2);
+        audio.play();
 
-        setCurrentWavData(sendData.data);
+        // setCurrentWavData(sendData.data);
       } catch (error) {
         console.log(error);
       }
-      setIsPlaying(true);
-      audio.play();
+      // setIsPlaying(true);
+      // audio.play();
     }
 
-    if (isPlaying) {
-      setIsPlaying(false);
-      audio.pause();
-    }
+    // if (isPlaying) {
+    //   setIsPlaying(false);
+    //   audio.pause();
+    // }
   };
 
   const onChange = (event) => {
@@ -136,7 +140,7 @@ const Workspace = () => {
                         />
                         <div className="workspace__work-list__row___controller">
                           <Slider percentage={percentage} onChange={onChange} />
-                          <audio
+                          {/* <audio
                             src={currentWavData}
                             ref={audioRef}
                             onTimeUpdate={getCurrDuration}
@@ -145,7 +149,7 @@ const Workspace = () => {
                                 event.currentTarget.duration.toFixed(2)
                               );
                             }}
-                          ></audio>
+                          ></audio> */}
                           <ControlPanel
                             play={play}
                             isPlaying={isPlaying}
