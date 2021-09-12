@@ -1,5 +1,5 @@
 // import { useRouter } from "next/router";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import axios from "axios";
 import Head from "next/head";
 import { GoPlus } from "react-icons/go";
@@ -19,7 +19,7 @@ const Workspace = () => {
   // const { id } = router.query; // info of random user
 
   // vars about the API url
-  const API_URL = "http://127.0.0.1:8000/add_music";
+  const API_URL = "http://127.0.0.1:8000/test_img";
   const [imageList, setImageList] = useState([]);
   const [wavList, setWavList] = useState([]);
 
@@ -36,9 +36,19 @@ const Workspace = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const audioRef = useRef();
 
-  const play = () => {
+  const play = async () => {
     const audio = audioRef.current;
     audio.volume = 1;
+    try {
+      console.log("CROPPED:" + currentCroppedData);
+      const sendData = await axios.post(API_URL, {
+        test_image: currentCroppedData,
+      });
+      console.log("hi");
+      console.log(sendData);
+    } catch (error) {
+      console.log(error);
+    }
 
     if (!isPlaying) {
       setIsPlaying(true);
@@ -69,24 +79,39 @@ const Workspace = () => {
     setCurrentTime(time.toFixed(2));
   };
 
+  // const onFileChange = (event) => {
+  //   const {
+  //     target: { files },
+  //   } = event;
+  //   const targetFile = files[0];
+  //   const reader = new FileReader();
+  //   reader.onloadend = (finishedEvent) => {
+  //     // convert image file to base64 string
+  //     const {
+  //       currentTarget: { result },
+  //     } = finishedEvent;
+  //     setFileString(result);
+  //     setOpenCropperModal(true);
+  //   };
+  //   if (targetFile) {
+  //     reader.readAsDataURL(targetFile);
+  //   }
+  // };
+
   const onFileChange = (event) => {
     const {
       target: { files },
     } = event;
     const targetFile = files[0];
-
-    const reader = new FileReader();
-    reader.onloadend = (finishedEvent) => {
-      // convert image file to base64 string
-      const {
-        currentTarget: { result },
-      } = finishedEvent;
-      setFileString(result);
+    // var file = event.target.files[0];
+    console.log(targetFile);
+    var reader = new FileReader();
+    reader.onloadend = function (finishedEvent) {
+      setFileString(reader.result);
       setOpenCropperModal(true);
+      console.log("RESULT", reader.result);
     };
-    if (targetFile) {
-      reader.readAsDataURL(targetFile);
-    }
+    reader.readAsDataURL(targetFile);
   };
 
   const handleClickCloseIcon = () => {
@@ -108,7 +133,7 @@ const Workspace = () => {
                 <ul className="workspace__work-list">
                   {imageList.map((item, index) => {
                     return (
-                      <li className="workspace__work-list__row">
+                      <li className="workspace__work-list__row" key={index}>
                         <div className="workspace__work-list__row__top-bar">
                           <h5 className="workspace__work-list__row__top-bar__index">
                             # {index + 1}

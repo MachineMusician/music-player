@@ -80,7 +80,7 @@ const Workspace_showHow = () => {
                     3. Click play button.
                   </h4>
                   <p className="carousel__slide__info__content">
-                    It won't take a long time to get result. I promise...!
+                    It won&apost take a long time to get result. I promise...!
                   </p>
                 </div>
                 <img
