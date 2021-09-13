@@ -44,6 +44,48 @@ const Workspace = () => {
 
   const play = () => {
     console.log("hi");
+    // const audio = audioRef.current;
+    // audio.volume = 1;
+
+    if (!isPlaying) {
+      try {
+        // API CALL
+        // const tmp = currentCroppedData.split(",");
+        // const sendData = await axios.post(API_URL, {
+        //   test_image: tmp[1],
+        // });
+        // // console.log("data = " + sendData.data);
+        // const dirArr = String(sendData.data).split("/");
+        // let dir = "";
+        // // console.log("dirArr = " + dirArr);
+        // for (let i = 1; i < dirArr.length; i++) {
+        //   dir += dirArr[i] + "/";
+        // }
+        // dir = dir.substr(0, dir.length - 1);
+        // console.log("dir = " + dir);
+
+        //####
+        // const dir = "public/output/test1.mid";
+        // const dir_tmp = `../../${dir}`;
+        // const file_name = "test1.mid";
+        setCurrentWavData(1);
+        const file_url = require(`../../public/output/` +
+          `test${currentWavData}.mid`).default;
+        console.log("file_url!!!!" + file_url); //data:audio/midi;base64,ZXhwb3J0IGRlZmF1bHQgX1
+        const audio = new AudioBuffer(file_url);
+        audio.play();
+        // audio.play();
+
+        // const audio = new Audio(file_url);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    // if (isPlaying) {
+    //   setIsPlaying(false);
+    //   audio.pause();
+    // }
   };
 
   const onChange = (event) => {

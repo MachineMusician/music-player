@@ -9,7 +9,7 @@ module.exports = {
   webpack: (config, { dev }) => {
     config.module.rules.push(
       {
-        test: /\.(png|svg|eot|otf|ttf|woff|woff2)$/,
+        test: /\.(png|svg|eot|otf|ttf|woff|woff2|mid|wav)$/,
         use: {
           loader: "url-loader",
           options: {
