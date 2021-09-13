@@ -1,265 +1,152 @@
-// import { useRouter } from "next/router";
-import { useRef, useState } from "react";
-import path from "path";
-import axios from "axios";
-import synth from "synth-js";
+import { AiOutlineGithub } from "react-icons/ai";
+import { RiReactjsLine } from "react-icons/ri";
+import { GiSoapExperiment } from "react-icons/gi";
 import Head from "next/head";
-import { GoPlus } from "react-icons/go";
-import { BsQuestionCircleFill } from "react-icons/bs";
-import { AiOutlineClose } from "react-icons/ai";
-import Modal from "../src/components/Modal";
-import Workspace_showHow from "../src/components/Workspace_ShowHow";
-import Slider from "../src/components/Slider";
-import ControlPanel from "../src/components/ControlPanel";
-import "cropperjs/dist/cropper.css";
-import Workspace_Cropper from "../src/components/Workspace_Cropper";
+import { useState } from "react";
+import NoteIcons from "../src/components/NoteIcons";
 
-// import Song from "../../public/test2.mp3";
-// import Song2 from "../../public/output/test3.wav";
+const Home = () => {
+  const [position, setPosition] = useState(0);
+  const SCROLL_SPEED = 10;
 
-const Workspace = () => {
-  // const router = useRouter();
-  // const { id } = router.query; // info of random user
-
-  // vars about the API url
-  const API_URL = "http://127.0.0.1:8000/test_img";
-  const [imageList, setImageList] = useState([]);
-  const [wavList, setWavList] = useState([]);
-  const [mid2wav, setMid2Wav] = useState("");
-
-  // vars about this page
-  const [fileString, setFileString] = useState("");
-  const [clickInfo, setClickInfo] = useState(false);
-  const [openCropperModal, setOpenCropperModal] = useState(false);
-  const [currentCroppedData, setCurrentCroppedData] = useState("");
-  const [currentWavData, setCurrentWavData] = useState("");
-
-  // vars about the music controller
-  const [percentage, setPercentage] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [duration, setDuration] = useState(0);
-  const [currentTime, setCurrentTime] = useState(0);
-  const audioRef = useRef();
-
-  const play = async () => {
-    // const audio = audioRef.current;
-    // audio.volume = 1;
-
-    if (!isPlaying) {
-      try {
-        // API CALL
-        // const tmp = currentCroppedData.split(",");
-        // const sendData = await axios.post(API_URL, {
-        //   test_image: tmp[1],
-        // });
-        // // console.log("data = " + sendData.data);
-        // const dirArr = String(sendData.data).split("/");
-        // let dir = "";
-        // // console.log("dirArr = " + dirArr);
-        // for (let i = 1; i < dirArr.length; i++) {
-        //   dir += dirArr[i] + "/";
-        // }
-        // dir = dir.substr(0, dir.length - 1);
-        // console.log("dir = " + dir);
-
-        //####
-        // const dir = "public/output/test1.mid";
-        // const dir_tmp = `../../${dir}`;
-        // const file_name = "test1.mid";
-        // setCurrentWavData(1);
-
-        // const file_url = await require(`../../public/output/` +
-        //   `test${currentWavData}.mid`).default;
-        // const tmp = file_url.split(",");
-        // console.log(tmp[1]);
-
-        // const audio = new Audio(file_url);
-        // audio.play();
-
-        const reader = new FileReader();
-        reader.onload = () => {
-          const { target: result } = loadEvent;
-          try {
-            var wav = synth.midiToWav(result.result).toBlob();
-            var src = URL.createObjectURL(wav);
-            console.log(result.result);
-            setMid2Wav(src);
-          } catch (error) {
-            // console.log(error);
-          }
-        };
-        reader.readAsArrayBuffer(file_url);
-
-        // const audio = new Audio(file_url);
-
-        // // "../../public/output/test3.wav"
-        // const test_file = (await import("../../public/output/test3.wav"))
-        //   .default;
-        // console.log(test_file);
-        // const audio = new Audio(
-        //   // "https://freewavesamples.com/files/Alesis-Fusion-Acoustic-Bass-C2.wav"
-        //   test_file
-        // );
-        audio.play();
-
-        // console.log(test_file);
-        // import(`${dir_tmp}`).then()
-        // const a = await import(test_file);
-
-        // const asdf = require(`../../${dir}`).default;
-        // setCurrentWavData(test_file);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    // if (isPlaying) {
-    //   setIsPlaying(false);
-    //   audio.pause();
-    // }
-  };
-
-  const onChange = (event) => {
-    const audio = audioRef.current;
-    audio.currentTime = (audio.duration / 100) * event.target.value;
-    setPercentage(event.target.value);
-  };
-
-  const getCurrDuration = (e) => {
-    //
-    const percent = (
-      (e.currentTarget.currentTime / e.currentTarget.duration) *
-      100
-    ).toFixed(2);
-    const time = e.currentTarget.currentTime;
-
-    setPercentage(+percent);
-    setCurrentTime(time.toFixed(2));
-  };
-
-  const onFileChange = (event) => {
-    const {
-      target: { files },
-    } = event;
-    const targetFile = files[0];
-    // var file = event.target.files[0];
-    // console.log(targetFile);
-    var reader = new FileReader();
-    reader.onloadend = function (finishedEvent) {
-      setFileString(reader.result);
-      setOpenCropperModal(true);
-      // console.log("RESULT", reader.result);
-    };
-    reader.readAsDataURL(targetFile);
-  };
-
-  const handleClickCloseIcon = () => {
-    setFileString("");
+  const onWheel = (event) => {
+    event.preventDefault();
+    event.currentTarget.scrollLeft += event.deltaY / SCROLL_SPEED;
+    setPosition(event.currentTarget.scrollLeft);
   };
 
   return (
     <>
       <Head>
-        <title>Go To Play</title>
-        <meta name="description" content="playing music" />
+        <title>Music Player</title>
+        <meta
+          name="description"
+          content="It's a website for playing music, using AI"
+        />
       </Head>
-
-      <div className="workspace-container">
-        <div className="workspace">
-          <div className="workspace__work">
-            {imageList.length > 0 && ( //
-              <>
-                <ul className="workspace__work-list">
-                  {imageList.map((item, index) => {
-                    return (
-                      <li className="workspace__work-list__row" key={index}>
-                        <div className="workspace__work-list__row__top-bar">
-                          <h5 className="workspace__work-list__row__top-bar__index">
-                            # {index + 1}
-                          </h5>
-                          <AiOutlineClose
-                            className="workspace__work-list__row__top-bar__closeIcon"
-                            onClick={handleClickCloseIcon}
-                          />
-                        </div>
-                        <img
-                          className="workspace__work-list__row__cropped-image"
-                          src={currentCroppedData}
-                          alt="cropped image"
-                        />
-                        <div className="workspace__work-list__row___controller">
-                          <Slider percentage={percentage} onChange={onChange} />
-                          {/* <audio
-                            src={
-                              currentWavData !== "" &&
-                              // require(`${currentWavData.toString()}`).default
-                              require(`../../public/output/` +
-                                `test${currentWavData}.wav`).default
-                            }
-                            ref={audioRef}
-                            onTimeUpdate={getCurrDuration}
-                            onLoadedData={(event) => {
-                              setDuration(
-                                event.currentTarget.duration.toFixed(2)
-                              );
-                            }}
-                          ></audio> */}
-                          <ControlPanel
-                            play={play}
-                            isPlaying={isPlaying}
-                            duration={duration}
-                            currentTime={currentTime}
-                          />
-                        </div>
-                      </li>
-                    );
-                  })}
-                </ul>
-                <Modal />
-              </>
-            )}
-          </div>
-
-          {openCropperModal && (
-            <>
-              <Workspace_Cropper
-                fileString={fileString}
-                setFileString={setFileString}
-                setCurrentCroppedData={setCurrentCroppedData}
-                setOpenCropperModal={setOpenCropperModal}
-                imageList={imageList}
-                setImageList={setImageList}
-              />
-            </>
-          )}
-          <form id="workspace__form">
-            <label htmlFor="upload-image">
-              <div className="workspace__uploadImg">
-                <GoPlus className="workspace__uploadImg__icon" />
-                <span>Upload image</span>
-                <span>.jpg/.jpeg/.png</span>
+      <div className="welcome">
+        <div className="welcome__container" onWheel={onWheel}>
+          <div className="welcome__container__contents">
+            <h2 className="welcome__container__contents__title">
+              Welcome to music player!!
+            </h2>
+            <div
+              className={
+                position > 90
+                  ? "welcome__container__contents__content active a"
+                  : "welcome__container__contents__content a"
+              }
+            >
+              <div className="welcome__container__contents__content__inner-content">
+                <span>Test your notes right now</span>
+                <img src="./headphone_and_note.jpg" alt="hi" />
               </div>
-            </label>
-            <input
-              id="upload-image"
-              className=""
-              type="file"
-              accept="image/*"
-              onChange={onFileChange}
-              style={{ visibility: "hidden" }}
-            />
-          </form>
+            </div>
 
-          <BsQuestionCircleFill
-            className="workspace-infoIcon"
-            onClick={() => setClickInfo(!clickInfo)}
-          />
+            <div
+              className={
+                position > 300
+                  ? "welcome__container__contents__content active b"
+                  : "welcome__container__contents__content b"
+              }
+            >
+              <div className="welcome__container__contents__content__inner-content">
+                <span>Step 1 : Take a picture of your note!</span>
+                <img src="./phone_camera2.jpg" alt="hi" />
+              </div>
+            </div>
+            <div
+              className={
+                position > 700
+                  ? "welcome__container__contents__content active c"
+                  : "welcome__container__contents__content c"
+              }
+            >
+              <div className="welcome__container__contents__content__inner-content">
+                <span>Step 2 : Choose an instrument you want to listen to</span>
+                <img src="./instrument.png" alt="hi" />
+              </div>
+            </div>
 
-          {clickInfo && <Workspace_showHow />}
+            <div
+              className={
+                position > 1300
+                  ? "welcome__container__contents__content active d"
+                  : "welcome__container__contents__content d"
+              }
+            >
+              <div className="welcome__container__contents__content__inner-content">
+                <span>Step 3: Play it!!</span>
+                <img src="./listening.jpg" alt="hi" />
+              </div>
+            </div>
+
+            <div
+              className={
+                position > 2000
+                  ? "welcome__container__contents__content active e"
+                  : "welcome__container__contents__content e"
+              }
+            >
+              <div className="welcome__container__contents__content__inner-content">
+                <span>
+                  Step 4: Upload to the dashboard and share your works!
+                </span>
+                <img src="./upload.png" alt="hi" />
+              </div>
+            </div>
+            <div
+              className={
+                position > 2700
+                  ? "welcome__container__contents__content active f"
+                  : "welcome__container__contents__content f"
+              }
+            >
+              <div className="welcome__container__contents__content__inner-content">
+                <div className="welcome__container__contents__content__aboutus">
+                  <span className="welcome__container__contents__content__aboutus__title">
+                    Contact to us
+                  </span>
+                  <div className="aboutus__column">
+                    <div className="aboutus__column__title">
+                      <GiSoapExperiment className="aboutus__column__title__icon" />
+                      <h3>AI model developer</h3>
+                    </div>
+                    <div className="aboutus__column__content">
+                      <span>maymeey@naver.com</span>
+                    </div>
+                  </div>
+                  <div className="aboutus__column">
+                    <div className="aboutus__column__title">
+                      <RiReactjsLine className="aboutus__column__title__icon" />
+                      <h3>Web developer</h3>
+                    </div>
+                    <div className="aboutus__column__content">
+                      <span>chocomilk8604@gmail.com</span>
+                    </div>
+                  </div>
+                  <div className="aboutus__column">
+                    <div className="aboutus__column__title">
+                      <a
+                        href="https://github.com/MachineMusician"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        <AiOutlineGithub className="aboutus__column__title__icon" />
+                        <h3>Go to GitHub</h3>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="spacer wave1">
+            <NoteIcons />
+          </div>
         </div>
       </div>
     </>
   );
 };
-
-export default Workspace;
+export default Home;

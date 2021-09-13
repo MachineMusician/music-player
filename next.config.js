@@ -1,6 +1,5 @@
 const path = require("path");
 const withSass = require("@zeit/next-sass");
-const withCss = require("@zeit/next-css");
 module.exports = withSass();
 
 module.exports = {
@@ -10,7 +9,7 @@ module.exports = {
   webpack: (config, { dev }) => {
     config.module.rules.push(
       {
-        test: /\.(png|svg|eot|otf|ttf|woff|woff2|mid)$/,
+        test: /\.(png|svg|eot|otf|ttf|woff|woff2)$/,
         use: {
           loader: "url-loader",
           options: {

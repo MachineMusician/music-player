@@ -14,8 +14,8 @@ import ControlPanel from "../../src/components/ControlPanel";
 import "cropperjs/dist/cropper.css";
 import Workspace_Cropper from "../../src/components/Workspace_Cropper";
 
-import Song from "../../public/test2.mp3";
-import Song2 from "../../public/output.mid";
+// import Song from "../../public/test2.mp3";
+// import Song2 from "../../public/output/test3.wav";
 
 const Workspace = () => {
   // const router = useRouter();
@@ -25,13 +25,15 @@ const Workspace = () => {
   const API_URL = "http://127.0.0.1:8000/test_img";
   const [imageList, setImageList] = useState([]);
   const [wavList, setWavList] = useState([]);
+  const [mid2wav, setMid2Wav] = useState("");
+  const [fileUrl, setFileUrl] = useState(1);
 
   // vars about this page
   const [fileString, setFileString] = useState("");
   const [clickInfo, setClickInfo] = useState(false);
   const [openCropperModal, setOpenCropperModal] = useState(false);
   const [currentCroppedData, setCurrentCroppedData] = useState("");
-  const [currentWavData, setCurrentWavData] = useState("");
+  const [currentWavData, setCurrentWavData] = useState(1);
 
   // vars about the music controller
   const [percentage, setPercentage] = useState(0);
@@ -40,45 +42,8 @@ const Workspace = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const audioRef = useRef();
 
-  const play = async () => {
-    // const audio = audioRef.current;
-    // audio.volume = 1;
-
-    if (!isPlaying) {
-      try {
-        // API CALL
-        const tmp = currentCroppedData.split(",");
-        const sendData = await axios.post(API_URL, {
-          test_image: tmp[1],
-        });
-        console.log(sendData.data);
-        // "/home/leo/HDD/WEB/nextjs/Music-Player-Server/output/test.mid"
-        const dirArr = String(sendData.data).split("/");
-        let dir = "";
-
-        console.log(dirArr);
-        for (let i = 1; i < dirArr.length; i++) {
-          dir += dirArr[i] + "/";
-        }
-        dir = dir.substr(0, dir.length - 1);
-        console.log(dir);
-        const dir_tmp = `../../${dir}`;
-        const test_file = require(dir_tmp).default;
-        const audio = new Audio(test_file);
-        audio.play();
-
-        // setCurrentWavData(sendData.data);
-      } catch (error) {
-        console.log(error);
-      }
-      // setIsPlaying(true);
-      // audio.play();
-    }
-
-    // if (isPlaying) {
-    //   setIsPlaying(false);
-    //   audio.pause();
-    // }
+  const play = () => {
+    console.log("hi");
   };
 
   const onChange = (event) => {
@@ -152,7 +117,12 @@ const Workspace = () => {
                         <div className="workspace__work-list__row___controller">
                           <Slider percentage={percentage} onChange={onChange} />
                           {/* <audio
-                            src={currentWavData}
+                            src={
+                              currentWavData !== "" &&
+                              // require(`${currentWavData.toString()}`).default
+                              require(`../../public/output/` +
+                                `test${currentWavData}.wav`).default
+                            }
                             ref={audioRef}
                             onTimeUpdate={getCurrDuration}
                             onLoadedData={(event) => {
