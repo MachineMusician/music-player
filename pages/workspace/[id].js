@@ -13,6 +13,7 @@ import Slider from "../../src/components/Slider";
 import ControlPanel from "../../src/components/ControlPanel";
 import "cropperjs/dist/cropper.css";
 import Workspace_Cropper from "../../src/components/Workspace_Cropper";
+import MidiPlayer from "midi-player-js";
 
 // import Song from "../../public/test2.mp3";
 // import Song2 from "../../public/output/test3.wav";
@@ -26,7 +27,7 @@ const Workspace = () => {
   const [imageList, setImageList] = useState([]);
   const [wavList, setWavList] = useState([]);
   const [mid2wav, setMid2Wav] = useState("");
-  const [fileUrl, setFileUrl] = useState(1);
+  const [fileUrl, setFileUrl] = useState("");
 
   // vars about this page
   const [fileString, setFileString] = useState("");
@@ -65,16 +66,26 @@ const Workspace = () => {
         // console.log("dir = " + dir);
 
         //####
-        // const dir = "public/output/test1.mid";
-        // const dir_tmp = `../../${dir}`;
+        const dir = "public/output/test1.mid";
+        const dir_tmp = `../../${dir}`;
         // const file_name = "test1.mid";
         setCurrentWavData(1);
         const file_url = require(`../../public/output/` +
           `test${currentWavData}.mid`).default;
         console.log("file_url!!!!" + file_url); //data:audio/midi;base64,ZXhwb3J0IGRlZmF1bHQgX1
-        const audio = new AudioBuffer(file_url);
-        audio.play();
-        // audio.play();
+        setFileUrl(dir_tmp);
+
+        const tmp = file_url.split(",");
+        const base64URL = tmp[1];
+        // console.log(base64URL);
+
+        const player = new MidiPlayer.Player((event) => {
+          console.log(event);
+        });
+
+        player.loadArrayBuffer(file_url);
+        // player.loadFile("../../public/output/test1.mid");
+        player.play();
 
         // const audio = new Audio(file_url);
       } catch (error) {
@@ -157,7 +168,8 @@ const Workspace = () => {
                           alt="cropped image"
                         />
                         <div className="workspace__work-list__row___controller">
-                          <Slider percentage={percentage} onChange={onChange} />
+                          {/* <Slider percentage={percentage} onChange={onChange} /> */}
+
                           {/* <audio
                             src={
                               currentWavData !== "" &&

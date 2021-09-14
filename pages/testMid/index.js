@@ -54,7 +54,7 @@ const testMid = () => {
       target: { files },
     } = event;
     const targetFile = files[0];
-    // console.log(targetFile);
+    console.log(files);
 
     if (files.length > 0) {
       const reader = new FileReader();
