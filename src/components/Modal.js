@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import { IoMdWarning } from "react-icons/io";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { BiUpload } from "react-icons/bi";
+import axios from "axios";
 
-const Modal = () => {
+const Modal = (props) => {
+  const API_URL = "http://127.0.0.1:8000/add_music";
+
   const [signStatus, setSignStatus] = useState(true); // true: left
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -36,8 +39,17 @@ const Modal = () => {
     if (code === "Enter") event.preventDefault();
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     console.log("Completed!!!!");
+
+    await axios.post(API_URL, {
+      title: title,
+      user_name: name,
+      description: description,
+      created_at: new Date().toISOString(),
+      image_files: [...props.imageList],
+    });
+    // need to redirect
   };
 
   const handleValidation = () => {

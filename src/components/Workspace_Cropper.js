@@ -9,7 +9,9 @@ const Workspace_Cropper = (props) => {
       const croppedImage = cropper.getCroppedCanvas().toDataURL();
       const imageListTmp = props.imageList;
       props.setCurrentCroppedData(croppedImage);
-      props.setImageList([...imageListTmp, croppedImage]);
+      const base64Tmp = croppedImage.split(",");
+      const base64 = base64Tmp[1];
+      props.setImageList([...imageListTmp, base64]);
       props.setOpenCropperModal(false);
     }
   };
