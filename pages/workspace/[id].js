@@ -1,8 +1,6 @@
 // import { useRouter } from "next/router";
 import { useRef, useState } from "react";
-import path from "path";
 import axios from "axios";
-import synth from "synth-js";
 import Head from "next/head";
 import { GoPlus } from "react-icons/go";
 import { BsQuestionCircleFill } from "react-icons/bs";
@@ -14,9 +12,6 @@ import ControlPanel from "../../src/components/ControlPanel";
 import "cropperjs/dist/cropper.css";
 import Workspace_Cropper from "../../src/components/Workspace_Cropper";
 
-// import Song from "../../public/test2.mp3";
-// import Song2 from "../../public/output/test3.wav";
-
 const Workspace = () => {
   // const router = useRouter();
   // const { id } = router.query; // info of random user
@@ -25,8 +20,6 @@ const Workspace = () => {
   const API_URL = "http://127.0.0.1:8000/test_img";
   const [imageList, setImageList] = useState([]);
   const [wavList, setWavList] = useState([]);
-  const [mid2wav, setMid2Wav] = useState("");
-  const [fileUrl, setFileUrl] = useState("");
 
   // vars about this page
   const [fileString, setFileString] = useState("");
@@ -48,7 +41,7 @@ const Workspace = () => {
 
     if (!isPlaying) {
       try {
-        // API CALL
+        // ### API CALL ###
         // const tmp = currentCroppedData.split(",");
         // const sendData = await axios.post(API_URL, {
         //   test_image: tmp[1],
@@ -63,6 +56,8 @@ const Workspace = () => {
         // dir = "/" + dir;
         // console.log("dir = " + dir);
         // dir = /output/test.wav
+        // const wavTmp = wavList;
+        // setWavList([...wavTmp, dir]); // TODO
 
         setCurrentWavData("/output/test.wav");
         // const audio = new Audio("/output/test.wav");
@@ -104,20 +99,17 @@ const Workspace = () => {
       target: { files },
     } = event;
     const targetFile = files[0];
-    // var file = event.target.files[0];
-    // console.log(targetFile);
     var reader = new FileReader();
-    reader.onloadend = function (finishedEvent) {
+    reader.onloadend = () => {
       setFileString(reader.result);
       setOpenCropperModal(true);
-      // console.log("RESULT", reader.result);
     };
     reader.readAsDataURL(targetFile);
   };
 
-  const handleClickCloseIcon = () => {
-    setFileString("");
-  };
+  // const handleClickCloseIcon = () => {
+  //   setFileString("");
+  // };
 
   return (
     <>
@@ -139,10 +131,10 @@ const Workspace = () => {
                           <h5 className="workspace__work-list__row__top-bar__index">
                             # {index + 1}
                           </h5>
-                          <AiOutlineClose
+                          {/* <AiOutlineClose
                             className="workspace__work-list__row__top-bar__closeIcon"
                             onClick={handleClickCloseIcon}
-                          />
+                          /> */}
                         </div>
                         <img
                           className="workspace__work-list__row__cropped-image"
@@ -172,7 +164,7 @@ const Workspace = () => {
                     );
                   })}
                 </ul>
-                <Modal />
+                <Modal wavList={wavList} imageList={imageList} />
               </>
             )}
           </div>
