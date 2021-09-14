@@ -13,7 +13,6 @@ import Slider from "../../src/components/Slider";
 import ControlPanel from "../../src/components/ControlPanel";
 import "cropperjs/dist/cropper.css";
 import Workspace_Cropper from "../../src/components/Workspace_Cropper";
-import MidiPlayer from "midi-player-js";
 
 // import Song from "../../public/test2.mp3";
 // import Song2 from "../../public/output/test3.wav";
@@ -43,51 +42,34 @@ const Workspace = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const audioRef = useRef();
 
-  const play = () => {
-    console.log("hi");
+  const play = async () => {
     // const audio = audioRef.current;
     // audio.volume = 1;
 
     if (!isPlaying) {
       try {
         // API CALL
-        // const tmp = currentCroppedData.split(",");
-        // const sendData = await axios.post(API_URL, {
-        //   test_image: tmp[1],
-        // });
-        // // console.log("data = " + sendData.data);
-        // const dirArr = String(sendData.data).split("/");
-        // let dir = "";
-        // // console.log("dirArr = " + dirArr);
-        // for (let i = 1; i < dirArr.length; i++) {
-        //   dir += dirArr[i] + "/";
-        // }
-        // dir = dir.substr(0, dir.length - 1);
-        // console.log("dir = " + dir);
-
-        //####
-        const dir = "public/output/test1.mid";
-        const dir_tmp = `../../${dir}`;
-        // const file_name = "test1.mid";
-        setCurrentWavData(1);
-        const file_url = require(`../../public/output/` +
-          `test${currentWavData}.mid`).default;
-        console.log("file_url!!!!" + file_url); //data:audio/midi;base64,ZXhwb3J0IGRlZmF1bHQgX1
-        setFileUrl(dir_tmp);
-
-        const tmp = file_url.split(",");
-        const base64URL = tmp[1];
-        // console.log(base64URL);
-
-        const player = new MidiPlayer.Player((event) => {
-          console.log(event);
+        const tmp = currentCroppedData.split(",");
+        const sendData = await axios.post(API_URL, {
+          test_image: tmp[1],
         });
+        // console.log("data = " + sendData.data);
 
-        player.loadArrayBuffer(file_url);
-        // player.loadFile("../../public/output/test1.mid");
-        player.play();
+        const dirArr = String(sendData.data).split("/");
+        let dir = "";
+        console.log("dirArr = " + dirArr);
+        for (let i = 2; i < dirArr.length; i++) {
+          dir += dirArr[i] + "/";
+        }
+        dir = dir.substr(0, dir.length - 1);
+        dir = "/" + dir;
+        console.log("dir = " + dir);
+        // dir = /output/test.wav
 
-        // const audio = new Audio(file_url);
+        const audio = new Audio(dir);
+        console.log("audio !! = " + audio.src);
+
+        audio.play();
       } catch (error) {
         console.log(error);
       }
