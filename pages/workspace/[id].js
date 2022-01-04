@@ -42,24 +42,24 @@ const Workspace = () => {
     if (!isPlaying) {
       try {
         // ### API CALL ###
-        // const tmp = currentCroppedData.split(",");
-        // const sendData = await axios.post(API_URL, {
-        //   test_image: tmp[1],
-        // });
-        // const dirArr = String(sendData.data).split("/");
-        // let dir = "";
-        // console.log("dirArr = " + dirArr);
-        // for (let i = 2; i < dirArr.length; i++) {
-        //   dir += dirArr[i] + "/";
-        // }
-        // dir = dir.substr(0, dir.length - 1);
-        // dir = "/" + dir;
+        const tmp = currentCroppedData.split(",");
+        const sendData = await axios.post(API_URL, {
+          test_image: tmp[1],
+        });
+        const dirArr = String(sendData.data).split("/");
+        let dir = "";
+        console.log("dirArr = " + dirArr);
+        for (let i = 2; i < dirArr.length; i++) {
+          dir += dirArr[i] + "/";
+        }
+        dir = dir.substr(0, dir.length - 1);
+        dir = "/" + dir;
         // console.log("dir = " + dir);
         // dir = /output/test.wav
         // const wavTmp = wavList;
         // setWavList([...wavTmp, dir]); // TODO
 
-        setCurrentWavData("/output/test.wav");
+        setCurrentWavData(dir);
         // const audio = new Audio("/output/test.wav");
         console.log("audio !! = " + audio.src);
         setIsPlaying(true);

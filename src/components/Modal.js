@@ -41,14 +41,28 @@ const Modal = (props) => {
 
   const handleSubmit = async () => {
     console.log("Completed!!!!");
+    console.log(props.imageList);
+    console.log(props.imageList[0]);
+    try {
+      // const result = await axios.post(API_URL, {
+      //   title: title,
+      //   user_name: name,
+      //   description: description,
+      //   created_at: "2021-09-09 01:01:01",
+      //   image_files: props.imageList,
+      // });
+      const result = await axios.post(API_URL, {
+        title: title,
+        user_name: name,
+        description: description,
+        created_at: "2021-09-09 01:01:01",
+        image_files: props.imageList,
+      });
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
 
-    await axios.post(API_URL, {
-      title: title,
-      user_name: name,
-      description: description,
-      created_at: new Date().toISOString(),
-      image_files: [...props.imageList],
-    });
     // need to redirect
   };
 
@@ -61,8 +75,6 @@ const Modal = (props) => {
 
     setValidation(tmp);
     tmp.includes(false) ? setIsPassedValid(false) : setIsPassedValid(true);
-
-    console.log(errorMsg);
   };
 
   useEffect(() => {

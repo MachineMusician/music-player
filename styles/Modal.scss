@@ -53,9 +53,10 @@
 .modal-screen {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   width: 100%;
   // height: clamp(40rem, 250vh, 100vh);
-  height: 100vh;
+  height: 100%;
   position: fixed;
   inset: 0;
   background-color: rgba(255, 255, 255, 0.1);
@@ -68,8 +69,6 @@
 
 .modal-screen.active {
   background-color: rgba(253, 0, 0, 0.5);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
 }
 
 .modal-container {
@@ -142,7 +141,8 @@
 
 @media screen and (max-width: 55rem) {
   .modal-screen {
-    height: clamp(70rem, 100rem, 80vh);
+    // height: clamp(70rem, 100rem, 80vh);
+    height: 100%;
   }
   .modal-container {
     position: relative;
@@ -181,12 +181,14 @@
     position: absolute;
     top: 0;
     left: 0;
+    height: 80%;
   }
 
   .rightForm__contents {
     position: absolute;
     top: 100%;
     left: 0;
+    height: 80%;
   }
 
   .leftForm.active .leftForm__contents {

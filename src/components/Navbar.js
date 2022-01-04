@@ -36,13 +36,13 @@ const Navbar = () => {
                 placeholder="search here!!"
               />
               <FaVolumeMute className="list__item__volume" />
-              <input
+              {/* <input
                 type="range"
                 min="0"
                 max="100"
                 id="list__item__volume-controller"
                 // value="0"
-              />
+              /> */}
             </li>
             <li
               className="nav__list__item"
